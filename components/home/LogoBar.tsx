@@ -1,5 +1,5 @@
-import { LOGOS } from "@/constants";
 import Image from "next/image";
+import { LOGOS } from "@/constants";
 
 function LogoBar() {
   return (

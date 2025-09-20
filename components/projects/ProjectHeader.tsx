@@ -1,12 +1,12 @@
 "use client";
 
-import { Project } from "@/sanity/lib/projects/getSingleProject";
-import Link from "next/link";
-import { Button } from "../ui/button";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { MoveLeft } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import type { Project } from "@/sanity/lib/projects/getSingleProject";
 import { FadeInLeft, FadeInRight } from "../AnimateOnScroll";
+import { Button } from "../ui/button";
 
 function ProjectHeader({ project }: { project: Project }) {
   const router = useRouter();

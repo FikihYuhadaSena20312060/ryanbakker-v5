@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { handleSmoothScrollClick } from "@/lib/utils";
-import { Layers } from "lucide-react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Layers } from "lucide-react";
+import Link from "next/link";
+import { handleSmoothScrollClick } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 function HeroBtns() {
   return (

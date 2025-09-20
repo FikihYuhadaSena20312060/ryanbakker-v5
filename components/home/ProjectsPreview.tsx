@@ -1,23 +1,23 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { FadeInUp } from "../AnimateOnScroll";
 import {
   FolderGit2,
   Globe,
+  Layers,
+  MoveRight,
+  PanelTop,
   Rocket,
   Smartphone,
-  MoveRight,
-  Layers,
-  PanelTop,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { urlFor } from "@/sanity/lib/image";
+import { Project } from "@/sanity/lib/projects/getAllProjects";
+import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
 import { Skeleton, SkeletonProjectCard, SkeletonText } from "../ui/skeleton";
-import { Project } from "@/sanity/lib/projects/getAllProjects";
-import { urlFor } from "@/sanity/lib/image";
-import Link from "next/link";
 
 // Click-triggered fade-in animation used to transition preview images
 function FadeInOnClick({
@@ -104,10 +104,8 @@ function ProjectsPreview({ projects }: { projects: any }) {
       return () => mql.removeEventListener("change", update);
     } else {
       // Safari <14 fallback
-      // @ts-ignore
       mql.addListener(update);
       return () => {
-        // @ts-ignore
         mql.removeListener(update);
       };
     }

@@ -1,8 +1,11 @@
-import { getFeaturedProjects } from "@/sanity/lib/projects/getFeaturedProjects";
-import { FadeInUp } from "../AnimateOnScroll";
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { MoveRight } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import {
+  getFeaturedProjects,
+  type Project,
+} from "@/sanity/lib/projects/getFeaturedProjects";
+import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
 
 async function ProjectsPreviewDesktop() {
@@ -69,7 +72,7 @@ async function ProjectsPreviewDesktop() {
     <>
       <aside>
         <ul className="flex flex-col gap-3">
-          {projects.map((project: any, index: any) => {
+          {projects.map((project: Project, index: number) => {
             const isSelected = index === selectedIndex;
             return (
               <FadeInUp key={project.title} delay={index * 150} duration={600}>
@@ -85,7 +88,6 @@ async function ProjectsPreviewDesktop() {
                     }`}
                   >
                     <div className="flex flex-row items-center gap-2">
-                      <project.icon className="w-6 h-6 text-white/90" />
                       <h5 className="font-bold text-white/95">
                         {project.title}
                       </h5>

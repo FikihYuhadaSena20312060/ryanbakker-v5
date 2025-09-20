@@ -38,7 +38,7 @@ export function Skeleton({
         baseClasses,
         variantClasses[variant],
         animationClasses[animation],
-        className
+        className,
       )}
       {...props}
     />
@@ -83,7 +83,7 @@ export function SkeletonProjectCard({ className }: { className?: string }) {
     <div
       className={cn(
         "p-6 rounded-xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 dark:border-white/5",
-        className
+        className,
       )}
     >
       <div className="flex flex-row items-center gap-3 mb-3">

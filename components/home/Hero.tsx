@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FadeInUp } from "../AnimateOnScroll";
+import { SkeletonHero } from "../ui/skeleton";
 import AnimatedBg from "./AnimatedBg";
 import HeroBtns from "./HeroBtns";
 import HeroImageGrid from "./HeroImageGrid";
-import { FadeInUp } from "../AnimateOnScroll";
-import { SkeletonHero } from "../ui/skeleton";
 
 function Hero() {
   const [isLoading, setIsLoading] = useState(true);

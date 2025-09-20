@@ -1,9 +1,9 @@
 "use client";
 
-import { Project } from "@/sanity/lib/projects/getSingleProject";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import type { Project } from "@/sanity/lib/projects/getSingleProject";
 import { Button } from "../ui/button";
 
 function ImageSlideshow({ project }: { project: Project }) {
@@ -13,7 +13,7 @@ function ImageSlideshow({ project }: { project: Project }) {
   const prevSlide = (): void => {
     setCurrentIndex(
       (prevIndex) =>
-        (prevIndex - 1 + project.images.length) % project.images.length
+        (prevIndex - 1 + project.images.length) % project.images.length,
     );
   };
 

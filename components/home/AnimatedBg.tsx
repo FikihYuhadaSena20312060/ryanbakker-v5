@@ -67,19 +67,19 @@ const AnimatedBg = () => {
         canvas.width * 0.3,
         canvas.height * 0.3,
         200,
-        "oklch(0.65 0.25 70.08)"
+        "oklch(0.65 0.25 70.08)",
       ), // Deep Amber
       new Blob(
         canvas.width * 0.6,
         canvas.height * 0.6,
         200,
-        "oklch(0.55 0.25 184.704)"
+        "oklch(0.55 0.25 184.704)",
       ), // Deep Blue
       new Blob(
         canvas.width * 0.5,
         canvas.height * 0.5,
         200,
-        "oklch(0.65 0.25 350)"
+        "oklch(0.65 0.25 350)",
       ), // Deep Pink
     ];
 

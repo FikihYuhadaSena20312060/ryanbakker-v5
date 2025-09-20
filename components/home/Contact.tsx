@@ -1,14 +1,6 @@
-import {
-  EnvelopeClosedIcon,
-  EnvelopeOpenIcon,
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-} from "@radix-ui/react-icons";
-import Image from "next/image";
-import React from "react";
-import { FadeInLeft, FadeInUp } from "../AnimateOnScroll";
-import LogoBar from "./LogoBar";
+import { EnvelopeOpenIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
 
 function Contact() {

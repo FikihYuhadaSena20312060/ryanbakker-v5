@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { NAV_LINKS } from "@/constants";
 import Logo from "./Logo";
-import { ThemeToggle } from "./ThemeToggle";
-import Link from "next/link";
 import MobileNav from "./MobileNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 function Header() {
   return (

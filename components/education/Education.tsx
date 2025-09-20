@@ -1,7 +1,7 @@
+import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
-import { MoveRight } from "lucide-react";
 import EducationInfo from "./EducationInfo";
 
 function Education() {

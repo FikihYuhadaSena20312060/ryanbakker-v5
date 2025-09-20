@@ -4,7 +4,6 @@ import {
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
-import React from "react";
 import { FadeInLeft, FadeInUp } from "../AnimateOnScroll";
 import LogoBar from "./LogoBar";
 

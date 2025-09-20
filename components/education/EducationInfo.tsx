@@ -1,6 +1,6 @@
-import { eduCards } from "@/constants";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
+import { eduCards } from "@/constants";
 import { FadeInLeft, FadeInRight } from "../AnimateOnScroll";
 
 function EducationInfo() {

@@ -1,33 +1,27 @@
 "use client";
 
+import { Menu } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
+import { NAV_LINKS } from "@/constants";
+import { Button } from "./ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { Button } from "./ui/button";
-import { NAV_LINKS } from "@/constants";
-import Link from "next/link";
-import { Menu } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
 
   const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setIsOpen(false);
 
     const href = e.currentTarget.getAttribute("href");
-    if (href && href.startsWith("/#")) {
+    if (href?.startsWith("/#")) {
       const targetId = href.substring(2);
       setTimeout(() => {
         const element = document.getElementById(targetId);

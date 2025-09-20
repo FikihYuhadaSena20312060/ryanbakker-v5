@@ -1,19 +1,22 @@
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 import { FadeInUp } from "@/components/AnimateOnScroll";
-import AnimatedBg from "@/components/home/AnimatedBg";
 import ImageSlideshow from "@/components/projects/ImageSlideshow";
 import ProjectAnimatedBg from "@/components/projects/ProjectAnimatedBg";
 import ProjectHeader from "@/components/projects/ProjectHeader";
 import { Button } from "@/components/ui/button";
 import {
   getSingleProject,
-  Project,
+  type Project,
 } from "@/sanity/lib/projects/getSingleProject";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import Image from "next/image";
-import Link from "next/link";
 
-async function SingleProject({ params }: { params: { projectId: string } }) {
-  const project: Project = await getSingleProject(params.projectId);
+async function SingleProject({
+  params,
+}: {
+  params: Promise<{ projectId: string }>;
+}) {
+  const resolvedParams = await params;
+  const project: Project = await getSingleProject(resolvedParams.projectId);
 
   return (
     <section className="relative -mt-17 overflow-hidden mb-5">

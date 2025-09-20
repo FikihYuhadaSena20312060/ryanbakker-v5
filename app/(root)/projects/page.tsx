@@ -1,10 +1,13 @@
-import { FadeInUp } from "@/components/AnimateOnScroll";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { getAllProjects, Project } from "@/sanity/lib/projects/getAllProjects";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
+import { FadeInUp } from "@/components/AnimateOnScroll";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import {
+  getAllProjects,
+  type Project,
+} from "@/sanity/lib/projects/getAllProjects";
 
 async function Projects() {
   const projects = await getAllProjects();

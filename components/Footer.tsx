@@ -1,7 +1,7 @@
-import { FOOTER_LINKS } from "@/constants";
-import Logo from "./Logo";
 import Link from "next/link";
-import { FadeInDown, FadeInUp } from "./AnimateOnScroll";
+import { FOOTER_LINKS } from "@/constants";
+import { FadeInDown } from "./AnimateOnScroll";
+import Logo from "./Logo";
 
 function Footer() {
   return (
