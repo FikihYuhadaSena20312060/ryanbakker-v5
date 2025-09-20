@@ -1,16 +1,36 @@
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { ProjectsClient } from "@/app/(root)/projects/ProjectsClient";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getPaginatedProjects } from "@/sanity/lib/projects/getAllProjects";
-import { ProjectsClient } from "@/app/(root)/projects/ProjectsClient";
 
 export const metadata: Metadata = {
-  title: "Ryan Bakker | Projects",
+  title: "Projects",
   description:
-    "Explore my portfolio of web development projects. View project details, technologies used, and GitHub repositories.",
+    "Explore my portfolio of web development projects. View project details, technologies used, and GitHub repositories. Featuring React, Next.js, TypeScript, and modern web technologies.",
+  openGraph: {
+    title: "Ryan Bakker | Projects Portfolio",
+    description:
+      "Explore my portfolio of web development projects. View project details, technologies used, and GitHub repositories.",
+    images: [
+      {
+        url: "/about-cover.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Ryan Bakker - Projects Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Bakker | Projects Portfolio",
+    description:
+      "Explore my portfolio of web development projects. View project details, technologies used, and GitHub repositories.",
+    images: ["/about-cover.jpeg"],
+  },
 };
 
 async function Projects() {
@@ -59,7 +79,7 @@ async function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
               {Array.from({ length: 6 }).map((_, index) => (
                 <div
-                  key={index}
+                  key={`skeleton-${index}`}
                   className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300 animate-pulse"
                 >
                   <div className="bg-gray-300 dark:bg-gray-600 rounded-lg h-48 mb-3"></div>

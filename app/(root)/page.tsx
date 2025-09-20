@@ -7,9 +7,29 @@ import ProjectsPreview from "@/components/home/ProjectsPreview";
 import { getFeaturedProjects } from "@/sanity/lib/projects/getFeaturedProjects";
 
 export const metadata: Metadata = {
-  title: "Ryan Bakker | Home",
+  title: "Home",
   description:
-    "Full-stack developer and designer creating modern web experiences. Explore my portfolio, projects, and get in touch.",
+    "Full-stack developer and designer creating modern web experiences. Explore my portfolio, projects, and get in touch. Specializing in React, Next.js, TypeScript, and modern web technologies.",
+  openGraph: {
+    title: "Ryan Bakker | Full-Stack Developer & Designer",
+    description:
+      "Full-stack developer and designer creating modern web experiences. Explore my portfolio, projects, and get in touch.",
+    images: [
+      {
+        url: "/about-cover.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Ryan Bakker - Full-Stack Developer & Designer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Bakker | Full-Stack Developer & Designer",
+    description:
+      "Full-stack developer and designer creating modern web experiences. Explore my portfolio, projects, and get in touch.",
+    images: ["/about-cover.jpeg"],
+  },
 };
 
 export default async function Home() {

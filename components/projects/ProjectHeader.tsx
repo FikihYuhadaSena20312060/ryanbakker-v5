@@ -1,8 +1,6 @@
 "use client";
 
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Info, MoveLeft } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Project } from "@/sanity/lib/projects/getSingleProject";
 import { FadeInLeft, FadeInRight } from "../AnimateOnScroll";

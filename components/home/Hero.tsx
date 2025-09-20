@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { FadeInUp } from "../AnimateOnScroll";
 import { SkeletonHero } from "../ui/skeleton";
 import { useImageLoading } from "@/lib/hooks/useImageLoading";

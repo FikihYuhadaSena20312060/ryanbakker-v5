@@ -79,7 +79,7 @@ function ProjectsPreview({ projects }: { projects: any }) {
   const projectImages =
     projects?.flatMap(
       (project: any) =>
-        project.images?.map((image: any) => urlFor(image).url()) || []
+        project.images?.map((image: any) => urlFor(image).url()) || [],
     ) || [];
 
   const { isLoading } = useImageLoading({

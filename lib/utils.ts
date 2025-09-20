@@ -31,7 +31,7 @@ export function smoothScrollTo(targetId: string, offset: number = -50) {
 export function handleSmoothScrollClick(
   event: React.MouseEvent<HTMLAnchorElement>,
   targetId: string,
-  offset: number = -50
+  offset: number = -50,
 ) {
   event.preventDefault();
   smoothScrollTo(targetId, offset);

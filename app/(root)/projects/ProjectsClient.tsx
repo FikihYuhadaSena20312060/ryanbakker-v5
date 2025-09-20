@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import {
   Pagination,
@@ -14,7 +14,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { type Project } from "@/sanity/lib/projects/getAllProjects";
+import type { Project } from "@/sanity/lib/projects/getAllProjects";
 
 interface ProjectsClientProps {
   initialData: {
@@ -34,9 +34,9 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
   const [data, setData] = useState(initialData);
   const [isLoading, setIsLoading] = useState(false);
 
-  const currentPage = parseInt(searchParams.get("page") || "1");
+  const currentPage = parseInt(searchParams.get("page") || "1", 10);
 
-  const fetchProjects = async (page: number) => {
+  const fetchProjects = useCallback(async (page: number) => {
     setIsLoading(true);
     try {
       const response = await fetch(`/api/projects?page=${page}&limit=6`);
@@ -47,13 +47,13 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (currentPage !== data.pagination.currentPage) {
       fetchProjects(currentPage);
     }
-  }, [currentPage]);
+  }, [currentPage, data.pagination.currentPage, fetchProjects]);
 
   const handlePageChange = (page: number) => {
     const params = new URLSearchParams(searchParams);

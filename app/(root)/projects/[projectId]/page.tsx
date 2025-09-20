@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import ImageSlideshow from "@/components/projects/ImageSlideshow";
@@ -18,12 +18,49 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolvedParams = await params;
   const project: Project = await getSingleProject(resolvedParams.projectId);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.dev";
 
   return {
-    title: `Ryan Bakker | ${project.title}`,
+    title: project.title,
     description:
       project.brief ||
       `View ${project.title} project details, technologies used, and GitHub repository.`,
+    keywords: [
+      project.title,
+      ...project.tools,
+      "web development",
+      "portfolio project",
+      "Ryan Bakker",
+      "React",
+      "Next.js",
+      "TypeScript",
+    ],
+    openGraph: {
+      title: `${project.title} | Ryan Bakker`,
+      description:
+        project.brief ||
+        `View ${project.title} project details, technologies used, and GitHub repository.`,
+      url: `${baseUrl}/projects/${project.slug}`,
+      images: [
+        {
+          url: project.coverImage.asset.url,
+          width: 1200,
+          height: 630,
+          alt: project.coverImage.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Ryan Bakker`,
+      description:
+        project.brief ||
+        `View ${project.title} project details, technologies used, and GitHub repository.`,
+      images: [project.coverImage.asset.url],
+    },
+    alternates: {
+      canonical: `${baseUrl}/projects/${project.slug}`,
+    },
   };
 }
 
