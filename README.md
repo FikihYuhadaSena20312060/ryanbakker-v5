@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧑🏻‍💻 Ryan Bakker
 
-## Getting Started
+`Working Under the Hood of Websites`<br/>
 
-First, run the development server:
+<p style="font-weight: 300">Hello there! 👋🏻 I'm a passionate Web Developer embarking on an exciting journey in web development. I specialise in creating SEO-optimised websites using the latest and greatest technologies, with a keen focus on Next.js 14. Actively pursuing opportunities to dive into full-stack development, I contribute to open-source projects to continually grow and refine my portfolio. Excited to connect and collaborate — let's bring ideas to life! 🚀 </p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<i> Check out my website: <a href="https://ryanbakker.vercel.app" target="_blank">`https://ryanbakker.vercel.app`</a> </i>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🛠️ Languages & Tools
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<img align="left" alt="React" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+<img align="left" alt="Nextjs" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
+<img align="left" alt="Typescript" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
+<img align="left" alt="Notion" width="30px" style="padding-right: 5px;" src="https://api.iconify.design/logos:notion-icon.svg" />
+<img align="left" alt="Javascript" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
+<img align="left" alt="HTML 5" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
+<img align="left" alt="CSS 3" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
+<img align="left" alt="Sass" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
+<img align="left" alt="GitHub" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+<img align="left" alt="Figma" width="30px" style="padding-right: 5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
+<img align="left" alt="Tailwind" width="30px" style="padding-right: 5px;" src="https://api.iconify.design/logos:tailwindcss-icon.svg" /><br/>
 
-## Learn More
+#
 
-To learn more about Next.js, take a look at the following resources:
+### 📊 Stats
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div style="display: flex; justify-content: center; align-items: center; gap: 5rem">
+  <img src="/metrics.base.svg" alt="GitHub Metrics" width="400">
+  <img src="/metrics.plugin.isocalendar.fullyear.svg" alt="Isometric Calendar Half Year" width="400">
+  <img src="/metrics.plugin.languages.details.svg" alt="Most Used Languages" width="400">
+  <img src="/metrics.plugin.achievements.svg" alt="Achievements" width="400">
+  <img src="/metrics.plugin.calendar.full.svg" alt="Current Calendar" width="400">
+  <img src="https://github-readme-stats.vercel.app/api?username=ryanbakker&show_icons=true&theme=transparent" alt="Ryan's Stats" width="400">
+</div>
