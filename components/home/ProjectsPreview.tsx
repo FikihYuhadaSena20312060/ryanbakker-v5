@@ -15,6 +15,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import { Project } from "@/sanity/lib/projects/getAllProjects";
+import { useImageLoading } from "@/lib/hooks/useImageLoading";
 import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
 import { Skeleton, SkeletonProjectCard, SkeletonText } from "../ui/skeleton";
@@ -68,12 +69,23 @@ function FadeInOnClick({
 function ProjectsPreview({ projects }: { projects: any }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [imagesVisible, setImagesVisible] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
   const [isDesktop, setIsDesktop] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
   console.log(projects);
+
+  // Extract all project images for loading detection
+  const projectImages =
+    projects?.flatMap(
+      (project: any) =>
+        project.images?.map((image: any) => urlFor(image).url()) || []
+    ) || [];
+
+  const { isLoading } = useImageLoading({
+    images: projectImages,
+    minLoadingTime: 800,
+  });
 
   const handleProjectClick = (index: number) => {
     if (index !== selectedIndex) {
@@ -84,15 +96,6 @@ function ProjectsPreview({ projects }: { projects: any }) {
       }, 50);
     }
   };
-
-  // Simulate loading time for demo purposes
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // Detect desktop via Tailwind's lg breakpoint (min-width: 1024px)
   useEffect(() => {

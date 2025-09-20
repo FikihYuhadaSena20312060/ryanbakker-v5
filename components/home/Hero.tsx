@@ -1,22 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FadeInUp } from "../AnimateOnScroll";
 import { SkeletonHero } from "../ui/skeleton";
+import { useImageLoading } from "@/lib/hooks/useImageLoading";
 import AnimatedBg from "./AnimatedBg";
 import HeroBtns from "./HeroBtns";
 import HeroImageGrid from "./HeroImageGrid";
 
+// Hero images that need to be loaded
+const HERO_IMAGES = [
+  "/hero/dark-desktop-dashboard.png",
+  "/hero/dark-desktop-transactions.png",
+  "/hero/dark-mobile-nav.png",
+  "/hero/dark-mobile-transactions.png",
+  "/hero/light-desktop-dashboard.png",
+  "/hero/light-desktop-transactions.png",
+  "/hero/light-mobile-nav.png",
+  "/hero/light-mobile-transactions.png",
+];
+
 function Hero() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { isLoading } = useImageLoading({
+    images: HERO_IMAGES,
+    minLoadingTime: 300,
+  });
 
   if (isLoading) {
     return <SkeletonHero />;

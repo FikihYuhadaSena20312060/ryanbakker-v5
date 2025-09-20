@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import { Button } from "@/components/ui/button";
@@ -53,7 +54,23 @@ async function Projects() {
           </FadeInUp>
         </div>
 
-        <ProjectsClient initialData={initialData} />
+        <Suspense
+          fallback={
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300 animate-pulse"
+                >
+                  <div className="bg-gray-300 dark:bg-gray-600 rounded-lg h-48 mb-3"></div>
+                  <div className="bg-gray-300 dark:bg-gray-600 rounded h-6 w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          }
+        >
+          <ProjectsClient initialData={initialData} />
+        </Suspense>
       </div>
     </section>
   );

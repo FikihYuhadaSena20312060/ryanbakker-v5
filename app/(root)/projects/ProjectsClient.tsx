@@ -72,6 +72,7 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
           onClick={() => handlePageChange(1)}
           isActive={currentPage === 1}
           className="cursor-pointer"
+          size="icon"
         >
           1
         </PaginationLink>
@@ -99,6 +100,7 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
               onClick={() => handlePageChange(i)}
               isActive={currentPage === i}
               className="cursor-pointer"
+              size="icon"
             >
               {i}
             </PaginationLink>
@@ -124,6 +126,7 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
             onClick={() => handlePageChange(totalPages)}
             isActive={currentPage === totalPages}
             className="cursor-pointer"
+            size="icon"
           >
             {totalPages}
           </PaginationLink>
@@ -173,6 +176,7 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
                       ? "pointer-events-none opacity-50"
                       : "cursor-pointer"
                   }
+                  size="default"
                 />
               </PaginationItem>
 
@@ -189,6 +193,7 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
                       ? "pointer-events-none opacity-50"
                       : "cursor-pointer"
                   }
+                  size="default"
                 />
               </PaginationItem>
             </PaginationContent>
