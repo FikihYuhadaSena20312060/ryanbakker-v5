@@ -1,16 +1,19 @@
+import type { Metadata } from "next";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import Image from "next/image";
-import Link from "next/link";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  getAllProjects,
-  type Project,
-} from "@/sanity/lib/projects/getAllProjects";
+import { getPaginatedProjects } from "@/sanity/lib/projects/getAllProjects";
+import { ProjectsClient } from "@/app/(root)/projects/ProjectsClient";
+
+export const metadata: Metadata = {
+  title: "Ryan Bakker | Projects",
+  description:
+    "Explore my portfolio of web development projects. View project details, technologies used, and GitHub repositories.",
+};
 
 async function Projects() {
-  const projects = await getAllProjects();
+  const initialData = await getPaginatedProjects(1, 6);
 
   return (
     <section className="bg-gradient-to-br from-sky-100 dark:from-black via-white dark:via-gray-950 to-sky-100 dark:to-black/90 -mt-16 pt-14 min-h-screen">
@@ -50,28 +53,7 @@ async function Projects() {
           </FadeInUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
-          {projects.map((project: Project, index: number) => (
-            <FadeInUp
-              key={project._id}
-              delay={500 + index * 150}
-              className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 dark:hover:shadow-sky-950/60 hover:-translate-y-1 transition-all hover:shadow-sky-100/80 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300"
-            >
-              <Link key={project._id} href={`/projects/${project.slug}`}>
-                <Image
-                  src={project.coverImage.asset.url}
-                  alt={project.coverImage.alt}
-                  width={600}
-                  height={600}
-                  className="rounded-lg"
-                />
-                <h3 className="font-semibold pt-3 pb-1 text-lg text-wrap truncate">
-                  {project.title}
-                </h3>
-              </Link>
-            </FadeInUp>
-          ))}
-        </div>
+        <ProjectsClient initialData={initialData} />
       </div>
     </section>
   );

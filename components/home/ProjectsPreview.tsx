@@ -223,7 +223,7 @@ function ProjectsPreview({ projects }: { projects: any }) {
                     {/* Mobile Image - Smaller, overlapping on top */}
                     <div className="absolute -bottom-10 md:top-2 md:right-2 z-10">
                       <Image
-                        src={urlFor(project.images[1]).url()}
+                        src={urlFor(project.images[0]).url()}
                         alt={`${project.title} Mobile View`}
                         width={250}
                         height={120}
@@ -233,7 +233,7 @@ function ProjectsPreview({ projects }: { projects: any }) {
                     {/* Desktop Image - Larger, positioned behind */}
                     <div className="absolute top-0 right-0 md:right-full md:left-0 z-0">
                       <Image
-                        src={urlFor(project.images[0]).url()}
+                        src={urlFor(project.images[1]).url()}
                         alt={`${project.title} Desktop View`}
                         width={325}
                         height={128}

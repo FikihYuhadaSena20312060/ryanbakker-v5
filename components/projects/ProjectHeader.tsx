@@ -1,12 +1,13 @@
 "use client";
 
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { MoveLeft } from "lucide-react";
+import { Info, MoveLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Project } from "@/sanity/lib/projects/getSingleProject";
 import { FadeInLeft, FadeInRight } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 
 function ProjectHeader({ project }: { project: Project }) {
   const router = useRouter();
@@ -20,12 +21,16 @@ function ProjectHeader({ project }: { project: Project }) {
           </h1>
         </FadeInRight>
         <FadeInRight delay={200}>
-          <h2 className="pt-3 max-w-96 text-neutral-700 dark:text-neutral-300">
+          <h2 className="pt-3 max-w-96 lg:max-w-[450px] text-neutral-700 dark:text-neutral-300">
             {project.description}
           </h2>
         </FadeInRight>
       </div>
-      <FadeInLeft delay={100}>
+      <FadeInLeft delay={100} className="flex flex-col items-end gap-4">
+        <Badge variant="outline">
+          <Info />
+          Under Construction
+        </Badge>
         <Button
           className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm md:w-auto"
           variant="glassSecondary"

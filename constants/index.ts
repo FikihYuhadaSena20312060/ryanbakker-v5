@@ -139,7 +139,7 @@ export const eduCards = [
     ],
   },
   {
-    title: "Diploma in Web Design & Production",
+    title: "Dip. in Web Design & Production",
     provider: "Yoobee College of Innovation",
     logoPath: "/logos/yoobee-logo.svg",
     iconPath: "/logos/yoobee-icon.png",
@@ -154,7 +154,7 @@ export const eduCards = [
     ],
   },
   {
-    title: "Diploma in Digital Media & Graphic Design",
+    title: "Dip. in Digital Media & Graphic Design",
     provider: "Yoobee College of Innovation",
     logoPath: "/logos/yoobee-logo.svg",
     iconPath: "/logos/yoobee-icon.png",

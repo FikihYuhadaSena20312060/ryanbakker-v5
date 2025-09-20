@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { FadeInUp } from "@/components/AnimateOnScroll";
@@ -9,6 +10,22 @@ import {
   getSingleProject,
   type Project,
 } from "@/sanity/lib/projects/getSingleProject";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ projectId: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const project: Project = await getSingleProject(resolvedParams.projectId);
+
+  return {
+    title: `Ryan Bakker | ${project.title}`,
+    description:
+      project.brief ||
+      `View ${project.title} project details, technologies used, and GitHub repository.`,
+  };
+}
 
 async function SingleProject({
   params,

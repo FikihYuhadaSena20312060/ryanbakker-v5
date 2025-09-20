@@ -4,6 +4,7 @@ import { sanityFetch } from "../live";
 export type Project = {
   _id: string;
   title: string;
+  lastUpdated: string;
   slug: string;
   coverImage: {
     asset: {
@@ -31,6 +32,7 @@ export const getSingleProjectQuery = defineQuery(
   `*[_type == "project" && slug.current == $slug][0]{
     _id,
     title,
+    lastUpdated,
     "slug": slug.current,
     coverImage {
       asset->{
@@ -52,7 +54,7 @@ export const getSingleProjectQuery = defineQuery(
       alt
     },
     tools
-  }`,
+  }`
 );
 
 export async function getSingleProject(slug: string) {
