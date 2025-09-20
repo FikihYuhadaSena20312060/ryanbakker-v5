@@ -14,8 +14,8 @@ function HeroBtns() {
       </span>
       <div className="flex flex-col md:flex-row md:items-center gap-4">
         <Link
-          href="/#projects"
-          onClick={(e) => handleSmoothScrollClick(e, "projects", 50)}
+          href="/#projects-preview"
+          onClick={(e) => handleSmoothScrollClick(e, "projects-preview")}
         >
           <Button
             className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm w-full md:w-auto"

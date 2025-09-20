@@ -12,7 +12,7 @@ import {
 export const NAV_LINKS = [
   {
     label: "Home",
-    href: "/",
+    href: "/#home",
     icon: House,
     external: false,
   },
@@ -45,7 +45,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   {
     label: "Home",
-    href: "/",
+    href: "/#home",
     external: false,
   },
   {

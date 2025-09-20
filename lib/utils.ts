@@ -8,9 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 /**
  * Smooth scroll utility function that scrolls to a target element with an offset
  * @param targetId - The ID of the target element (without the #)
- * @param offset - The offset in pixels from the top (default: 50)
+ * @param offset - The offset in pixels from the top (default: 80)
  */
-export function smoothScrollTo(targetId: string, offset: number = 50) {
+export function smoothScrollTo(targetId: string, offset: number = -50) {
   const element = document.getElementById(targetId);
   if (!element) {
     return;
@@ -26,12 +26,12 @@ export function smoothScrollTo(targetId: string, offset: number = 50) {
  * Handle click events for smooth scrolling navigation links
  * @param event - The click event
  * @param targetId - The ID of the target element (without the #)
- * @param offset - The offset in pixels from the top (default: 50)
+ * @param offset - The offset in pixels from the top (default: 80)
  */
 export function handleSmoothScrollClick(
   event: React.MouseEvent<HTMLAnchorElement>,
   targetId: string,
-  offset: number = 50,
+  offset: number = -50
 ) {
   event.preventDefault();
   smoothScrollTo(targetId, offset);

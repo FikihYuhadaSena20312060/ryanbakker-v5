@@ -24,13 +24,20 @@ function MobileNav() {
     if (href?.startsWith("/#")) {
       const targetId = href.substring(2);
       setTimeout(() => {
-        const element = document.getElementById(targetId);
-        if (element) {
-          // Use scrollIntoView with a custom offset
-          const yOffset = -50;
-          const y =
-            element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
+        if (targetId === "home") {
+          // Home link - scroll to top
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          // Other sections - scroll to specific element
+          const element = document.getElementById(targetId);
+          if (element) {
+            const yOffset = -50; // Account for fixed header
+            const y =
+              element.getBoundingClientRect().top +
+              window.pageYOffset +
+              yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
         }
       }, 300); // Increased delay to ensure sheet closes completely
     }
@@ -61,6 +68,7 @@ function MobileNav() {
                 href={link.href}
                 target={link.external ? "_blank" : "_self"}
                 className="flex items-center gap-4 hover:text-blue-600 transition-colors"
+                onClick={link.external ? undefined : handleHashLinkClick}
               >
                 <link.icon className="size-5" />
                 {link.label}

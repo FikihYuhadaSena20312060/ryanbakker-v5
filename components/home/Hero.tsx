@@ -31,7 +31,7 @@ function Hero() {
   }
 
   return (
-    <section className="min-h-[90vh] overflow-hidden md:-mt-17">
+    <section id="home" className="min-h-[90vh] overflow-hidden md:-mt-17">
       <AnimatedBg />
 
       <div className="page-container md:pt-32!">
