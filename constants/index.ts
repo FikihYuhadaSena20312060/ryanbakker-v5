@@ -17,7 +17,7 @@ export const NAV_LINKS = [
   },
   {
     label: "Projects",
-    href: "/#projects-preview",
+    href: "/projects",
     icon: Layers,
     external: false,
   },

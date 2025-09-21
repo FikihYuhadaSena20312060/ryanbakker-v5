@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { Mail, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { NAV_LINKS } from "@/constants";
@@ -8,10 +8,12 @@ import { Button } from "./ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +59,10 @@ function MobileNav() {
           <span className="sr-only">Toggle mobile menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[260px]">
+      <SheetContent
+        side="right"
+        className="w-[260px] bg-gradient-to-br from-sky-100 dark:from-black via-white dark:via-gray-950 to-sky-100 dark:to-black/90"
+      >
         <SheetHeader>
           <SheetTitle>Ryan Bakker</SheetTitle>
         </SheetHeader>
@@ -67,16 +72,45 @@ function MobileNav() {
               <Link
                 href={link.href}
                 target={link.external ? "_blank" : "_self"}
-                className="flex items-center gap-4 hover:text-blue-600 transition-colors"
                 onClick={link.external ? undefined : handleHashLinkClick}
                 prefetch={!link.external}
               >
-                <link.icon className="size-5" />
-                {link.label}
+                <Button
+                  className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20"
+                  variant="glassSecondary"
+                >
+                  <span className="flex flex-row items-center gap-2">
+                    <link.icon className="size-5" />
+                    {link.label}
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                </Button>
               </Link>
             </li>
           ))}
         </ul>
+        <SheetFooter>
+          <ul className="flex flex-row gap-8 md:gap-5 items-center justify-center md:justify-start pb-4">
+            <li>
+              <a href="mailto:ryanbakker@outlook.co.nz?subject=Website%20Enquiry">
+                <Mail className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ryan-bakker/"
+                target="_blank"
+              >
+                <LinkedInLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ryanbakker" target="_blank">
+                <GitHubLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
+              </a>
+            </li>
+          </ul>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

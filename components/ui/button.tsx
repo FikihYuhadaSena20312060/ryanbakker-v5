@@ -15,7 +15,7 @@ const buttonVariants = cva(
           "backdrop-blur-md bg-white/10 dark:bg-white/10 border border-white/20 text-foreground shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 focus-visible:ring-[3px] focus-visible:ring-ring/40",
         // Primary glass: vibrant tinted glass for primary CTAs (more prominent)
         glassPrimary:
-          "backdrop-blur-lg text-white! border border-sky-500/40 dark:border-white/35 shadow-[0_6px_20px_rgba(56,189,248,0.25)] hover:shadow-[0_8px_26px_rgba(56,189,248,0.3)] focus-visible:ring-[3px] focus-visible:ring-sky-400/40 bg-gradient-to-r from-sky-600/55 via-indigo-600/55 to-sky-600/55 dark:from-sky-500/30 dark:via-indigo-500/30 dark:to-sky-500/30 bg-[length:200%_200%] animate-gradient-slow",
+          "backdrop-blur-lg text-white! border border-sky-500/20 dark:border-white/35 shadow-[0_6px_20px_rgba(56,189,248,0.25)] hover:shadow-[0_8px_26px_rgba(56,189,248,0.3)] focus-visible:ring-[3px] focus-visible:ring-sky-400/40 bg-gradient-to-r from-sky-700/65 via-indigo-700/65 to-sky-700/65 dark:from-sky-500/30 dark:via-indigo-500/30 dark:to-sky-500/30 bg-[length:200%_200%] animate-gradient-slow",
         // Secondary glass: neutral frosted glass for secondary actions (subtle)
         glassSecondary:
           "backdrop-blur-md bg-white/8 dark:bg-white/6 text-foreground/90 border border-white/20 shadow-[0_6px_24px_rgba(0,0,0,0.08)] hover:bg-white/12 hover:border-white/25 focus-visible:ring-[3px] focus-visible:ring-ring/30",

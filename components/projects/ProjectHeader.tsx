@@ -14,7 +14,7 @@ function ProjectHeader({ project }: { project: Project }) {
     <div className="page-container flex md:items-end flex-col md:flex-row justify-between h-full gap-3 md:gap-0 z-[100]">
       <div>
         <FadeInRight delay={100}>
-          <h1 className="text-4xl font-extrabold tracking-tight page-content bg-gradient-to-tr from-neutral-900 via-neutral-800 to-neutral-600 dark:from-neutral-200/90 dark:via-white/70 dark:to-white/50 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)] pb-1">
+          <h1 className="text-4xl font-extrabold tracking-tight page-content bg-gradient-to-tr from-neutral-900 via-neutral-800 to-neutral-600 dark:from-neutral-100/90 dark:via-white/90 dark:to-white/80 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)] pb-1">
             {project.title}
           </h1>
         </FadeInRight>
@@ -32,7 +32,7 @@ function ProjectHeader({ project }: { project: Project }) {
         >
           <div>
             <div className="flex items-center gap-3">
-              <MoveLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <MoveLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
               Go Back
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>

@@ -33,7 +33,7 @@ export function ThemeToggle() {
       variant="glassSecondary"
       size="icon"
       onClick={toggleTheme}
-      className="lg:hidden group relative overflow-hidden hover:scale-[1.03] active:scale-95 transition-transform duration-300"
+      className="group relative overflow-hidden hover:scale-[1.03] active:scale-95 transition-transform duration-300"
     >
       <div className="relative z-10">
         {theme === "light" ? (

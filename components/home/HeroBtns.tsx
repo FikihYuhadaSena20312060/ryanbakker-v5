@@ -19,6 +19,7 @@ function HeroBtns() {
         >
           <Button
             className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm w-full md:w-auto"
+            size="lg"
             variant="glassPrimary"
           >
             <div>
@@ -33,6 +34,7 @@ function HeroBtns() {
         <Link href="https://www.github.com/ryanbakker" target="_blank">
           <Button
             className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20"
+            size="lg"
             variant="glassSecondary"
           >
             <div className="flex items-center gap-3">

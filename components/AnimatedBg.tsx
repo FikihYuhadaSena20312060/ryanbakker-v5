@@ -52,7 +52,7 @@ const AnimatedBg = () => {
       isMobile && (navigator.hardwareConcurrency || 4) <= 2;
 
     // Set the base size for blobs depending on the device type
-    const baseBlobSize = isMobile ? 90 : 180;
+    const baseBlobSize = isMobile ? 60 : 180;
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -191,7 +191,7 @@ const AnimatedBg = () => {
         canvas.width * (0.5 + Math.random() * 0.3), // Random position in center-right area
         canvas.height * (0.4 + Math.random() * 0.3), // Random position in center area
         baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(0.55 0.25 184.704)"
+        "oklch(68.5% 0.169 237.323)"
       ), // Deep Blue
       new Blob(
         canvas.width * (0.3 + Math.random() * 0.4), // Random position in center area
@@ -234,7 +234,7 @@ const AnimatedBg = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full bg-neutral-400/60 dark:bg-neutral-900/90 transition-opacity from-0% to-100% ease-in-out"
+      className="absolute inset-0 w-full h-full bg-neutral-400/60 dark:bg-neutral-900/90 transition-opacity from-0% to-100% ease-in-out -z-1"
       style={{ opacity: 0.5 }}
     />
   );

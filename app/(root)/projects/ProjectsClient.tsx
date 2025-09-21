@@ -148,26 +148,32 @@ export const ProjectsClient = memo(function ProjectsClient({
           <FadeInUp
             key={project._id}
             delay={500 + index * 150}
-            className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 dark:hover:shadow-sky-950/60 hover:-translate-y-1 transition-all hover:shadow-sky-100/80 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300"
+            className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 dark:hover:shadow-sky-950/60 hover:-translate-y-1 transition-all hover:transition-all hover:shadow-sky-100/80 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300"
           >
             <Link
               key={project._id}
               href={`/projects/${project.slug}`}
               prefetch={true}
+              className="transition-all"
             >
-              <Image
-                src={project.coverImage.asset.url}
-                alt={project.coverImage.alt}
-                width={600}
-                height={600}
-                className="rounded-lg"
-                priority={index < 3} // Prioritize first 3 images
-                loading={index < 3 ? "eager" : "lazy"}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <h3 className="font-semibold pt-3 pb-1 text-lg text-wrap truncate">
-                {project.title}
-              </h3>
+              <FadeInUp delay={600} duration={150}>
+                <Image
+                  src={project.coverImage.asset.url}
+                  alt={project.coverImage.alt}
+                  width={600}
+                  height={600}
+                  className="rounded-lg"
+                  priority={index < 3} // Prioritize first 3 images
+                  loading={index < 3 ? "eager" : "lazy"}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw shadow-lg"
+                />
+              </FadeInUp>
+
+              <FadeInUp delay={750} duration={200}>
+                <h3 className="font-semibold pt-3 pb-1 text-lg text-wrap truncate">
+                  {project.title}
+                </h3>
+              </FadeInUp>
             </Link>
           </FadeInUp>
         ))}

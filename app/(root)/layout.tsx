@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ),
   title: {
     default: "Ryan Bakker | Full-Stack Developer & Designer",
-    template: "%s | Ryan Bakker",
+    template: "Ryan Bakker | %s",
   },
   description:
     "Hi I’m Ryan, a Web Developer. Experienced in front-end with a focus on Next.js development, a tech enthusiast, and currently studying to complete a Bachelor of Computer and Information Sciences in Auckland, New Zealand. Explore my latest projects, which incorporate AI and modern development principles.",
@@ -111,7 +111,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site";
 
   const structuredData = {
     "@context": "https://schema.org",

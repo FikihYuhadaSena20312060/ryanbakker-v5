@@ -7,8 +7,9 @@ import {
 } from "@radix-ui/react-icons";
 import Image from "next/image";
 import { useRef } from "react";
-import { FadeInLeft, FadeInUp } from "../AnimateOnScroll";
+import { FadeInLeft, FadeInRight, FadeInUp } from "../AnimateOnScroll";
 import LogoBar from "./LogoBar";
+import { Mail } from "lucide-react";
 
 function About() {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -23,10 +24,10 @@ function About() {
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
 
-    const rotateX = (mouseY / rect.height) * -20; // Max 20 degrees tilt
-    const rotateY = (mouseX / rect.width) * 20; // Max 20 degrees rotation
+    const rotateX = (mouseY / rect.height) * -10; // Max 20 degrees tilt
+    const rotateY = (mouseX / rect.width) * 10; // Max 20 degrees rotation
 
-    imageRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    imageRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
   };
 
   const handleMouseLeave = () => {
@@ -47,12 +48,12 @@ function About() {
               <h2 className="section-heading">About Me</h2>
             </FadeInUp>
 
-            <FadeInUp delay={50} className="flex">
+            <FadeInRight delay={450} className="flex">
               <span className="h-0.5 w-4 bg-neutral-800 dark:bg-neutral-300 rounded-full mt-1.5 mb-4 -ml-2 relative" />
-            </FadeInUp>
+            </FadeInRight>
 
             <div>
-              <FadeInUp delay={100}>
+              <FadeInUp delay={150}>
                 <p className="opacity-70 max-w-[46rem]">
                   Tech enthusiast with an interest in integrating AI models with
                   front-end development. Learning to code since I was thirteen,
@@ -76,10 +77,10 @@ function About() {
               </FadeInUp>
 
               <FadeInUp delay={150}>
-                <ul className="flex flex-row gap-5 mt-8">
+                <ul className="flex flex-row gap-8 md:gap-5 mt-8 items-center justify-center md:justify-start">
                   <li>
                     <a href="mailto:ryanbakker@outlook.co.nz?subject=Website%20Enquiry">
-                      <EnvelopeClosedIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
+                      <Mail className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
                     </a>
                   </li>
                   <li>
@@ -107,7 +108,7 @@ function About() {
               alt="photo of me under lights"
               width={380}
               height={400}
-              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-2xl my-8 object-cover backdrop-blur-xl bg-white/20 dark:bg-white/15 border border-sky-200/30 dark:border-gray-600/25 shadow-[0_25px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_50px_rgba(255,255,255,0.15)] hover:bg-white/30 dark:hover:bg-white/25 hover:border-sky-300/40 dark:hover:border-gray-500/35 hover:shadow-[0_35px_70px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_35px_70px_rgba(255,255,255,0.25)] glass-image-3d max-h-[60vh] transition-all!"
+              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-2xl my-8 object-cover backdrop-blur-xl bg-white/20 dark:bg-white/15 border border-sky-200/30 dark:border-gray-600/25 shadow-[0_15px_30px_rgba(0,0,0,0.20)] dark:shadow-[0_15px_30px_rgba(255,255,255,0.10)] hover:bg-white/30 dark:hover:bg-white/25 hover:border-sky-300/40 dark:hover:border-gray-500/35 hover:shadow-[0_25px_50px_rgba(0,0,0,0.25)] dark:hover:shadow-[0_25px_50px_rgba(255,255,255,0.15)] glass-image-3d max-h-[60vh] transition-all!"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             />

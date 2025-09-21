@@ -7,7 +7,7 @@ import ProjectsPreview from "@/components/home/ProjectsPreview";
 import { getFeaturedProjects } from "@/sanity/lib/projects/getFeaturedProjects";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Ryan Bakker | Home",
   description:
     "Full-stack developer and designer creating modern web experiences. Explore my portfolio, projects, and get in touch. Specializing in React, Next.js, TypeScript, and modern web technologies.",
   openGraph: {

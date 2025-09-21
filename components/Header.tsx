@@ -5,6 +5,7 @@ import { NAV_LINKS } from "@/constants";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 import { ThemeToggle } from "./ThemeToggle";
+import { FadeInUp } from "./AnimateOnScroll";
 
 function Header() {
   const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -35,19 +36,21 @@ function Header() {
         <Logo />
 
         <nav className="flex items-center gap-4 md:gap-8">
-          <ul className="items-center gap-8 hidden md:flex">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  target={link.external ? "_blank" : "_self"}
-                  className="desktop-nav-link"
-                  onClick={link.external ? undefined : handleHashLinkClick}
-                  prefetch={!link.external}
-                >
-                  <link.icon className="size-4" />
-                  {link.label}
-                </Link>
+          <ul className="items-center gap-2 hidden md:flex">
+            {NAV_LINKS.map((link, index) => (
+              <li key={index}>
+                <FadeInUp delay={500 + index * 150}>
+                  <Link
+                    href={link.href}
+                    target={link.external ? "_blank" : "_self"}
+                    className="flex flex-row items-center gap-2 py-2 px-4 overflow-hidden border border-transparent rounded-md transition-all duration-300 hover:cursor-pointer text-neutral-900 dark:text-neutral-100 hover:dark:border-white/20 hover:backdrop-blur-md hover:bg-white/8 hover:dark:bg-white/6 hover:border hover:border-white/20 hover:shadow-[0_6px_24px_rgba(0,0,0,0.08)] hover:focus-visible:ring-[3px] hover:focus-visible:ring-ring/30"
+                    onClick={link.external ? undefined : handleHashLinkClick}
+                    prefetch={!link.external}
+                  >
+                    <link.icon className="size-4" />
+                    {link.label}
+                  </Link>
+                </FadeInUp>
               </li>
             ))}
           </ul>

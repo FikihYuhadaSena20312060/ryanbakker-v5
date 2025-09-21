@@ -235,7 +235,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
                           variant="glassSecondary"
                         >
                           <div className="flex items-center gap-3">
-                            <span>GitHub Profile</span>
+                            <span>View Project</span>
                             <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
                           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
@@ -352,14 +352,15 @@ const ProjectsPreview = memo(function ProjectsPreview({
                   </Link>
 
                   <Button
+                    className="absolute left-[325px] bottom-5 w-[200px] group overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20 mt-4"
                     variant="glassSecondary"
-                    className="absolute left-[325px] bottom-5 w-[200px] z-30 backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%]"
                   >
                     <Link href={`/projects/${projects[selectedIndex].slug}`}>
-                      <span className="relative z-10 flex items-center justify-center gap-2 transition-all duration-300 group-hover:gap-3">
-                        View Project
-                        <MoveRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
-                      </span>
+                      <div className="flex items-center gap-3">
+                        <span>View Project</span>
+                        <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                     </Link>
                   </Button>
                 </div>
