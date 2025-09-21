@@ -13,8 +13,8 @@ function Education() {
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-sky-400/30 to-blue-500/30 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full blur-3xl" />
 
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="flex flex-col md:flex-row justify-between md:items-end mb-2 md:mb-16 gap-8 md:gap-0">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col md:flex-row justify-between md:items-end mb-2 md:mb-16 gap-8 md:gap-0 px-4">
           <div className="flex flex-col">
             <FadeInUp delay={0}>
               <div>

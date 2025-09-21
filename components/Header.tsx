@@ -43,8 +43,7 @@ function Header() {
                   <Link
                     href={link.href}
                     target={link.external ? "_blank" : "_self"}
-                    className="flex flex-row items-center gap-2 py-2 px-4 overflow-hidden border border-transparent rounded-md transition-all duration-300 hover:cursor-pointer text-neutral-900 dark:text-neutral-100 hover:dark:border-white/20 hover:backdrop-blur-md hover:bg-white/8 hover:dark:bg-white/6 hover:border hover:border-white/20 hover:shadow-[0_6px_24px_rgba(0,0,0,0.08)] hover:focus-visible:ring-[3px] hover:focus-visible:ring-ring/30"
-                    onClick={link.external ? undefined : handleHashLinkClick}
+                    className="flex flex-row items-center gap-2 py-2 px-4 overflow-hidden border border-transparent rounded-md transition-all duration-300 hover:cursor-pointer text-neutral-900 dark:text-neutral-100 hover:dark:border-white/20 hover:backdrop-blur-md hover:bg-white/8 hover:dark:bg-white/6 hover:border hover:border-white/20 hover:shadow-[0_6px_24px_rgba(0,0,0,0.08)] hover:focus-visible:ring-[3px] hover:focus-visible:ring-ring/30 z-50"
                     prefetch={!link.external}
                   >
                     <link.icon className="size-4" />
