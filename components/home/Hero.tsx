@@ -55,14 +55,7 @@ function Hero() {
             </FadeInUp>
           </div>
 
-          {/* Only show skeleton for images if critical images aren't loaded yet */}
-          {!criticalLoaded ? (
-            <div className="flex items-center justify-center text-center z-10 max-w-[600px]">
-              <div className="w-[600px] h-[300px] bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse" />
-            </div>
-          ) : (
-            <HeroImageGrid />
-          )}
+          <HeroImageGrid />
         </div>
       </div>
     </section>
