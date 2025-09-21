@@ -201,3 +201,31 @@
 .glass-image-3d:hover {
   transform: perspective(1000px) rotateX(8deg) rotateY(5deg) scale(1.02);
 }
+
+.top-heading-sizes {
+  font-size: 36px;
+}
+
+@media (min-width: 350px) {
+  .top-heading-sizes {
+    font-size: 41px;
+  }
+}
+
+@media (min-width: 425px) {
+  .top-heading-sizes {
+    font-size: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .top-heading-sizes {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .top-heading-sizes {
+    font-size: 72px;
+  }
+}
