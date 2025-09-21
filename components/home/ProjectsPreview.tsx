@@ -190,9 +190,9 @@ const ProjectsPreview = memo(function ProjectsPreview({
               Personal Projects
             </h2>
             <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
-              Check out some of the projects I have been working on. View a
-              project summary and go to the GitHub repository, where you can see
-              the tools and methods used.
+              Check out some of the projects I&apos;ve been working on. View a
+              project summary and go to the GitHub repo, where you can see the
+              tools and methods used.
             </p>
           </div>
         </FadeInUp>

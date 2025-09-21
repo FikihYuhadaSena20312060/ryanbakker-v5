@@ -7,7 +7,7 @@ import { Separator } from "../ui/separator";
 
 function EducationInfo() {
   return (
-    <div className="flex flex-col md:flex-row justify-between mb-14 w-full pr-4">
+    <div className="flex flex-col md:flex-row justify-between mb-14 w-full px-4">
       {/* Mobile Variant */}
       <div className="md:space-y-22 block md:hidden">
         <FadeInRight delay={0}>

@@ -66,13 +66,12 @@ function About() {
                   <br />
                   <br />
                   When I&apos;m not glued to my screen and running on a
-                  concerning amount of caffeine, you&apos;ll probably find me
-                  outdoors in the sunshine and fresh air. That is, if I&apos;m
-                  not at home enjoying the latest show I&apos;ve gotten hooked
-                  on. Some other passions I like to indulge in also include
-                  photography, cooking, and motorsport weekends. All of which
-                  helps me get away from my devices while still exploring my
-                  creative outlet.
+                  concerning amount of caffeine, you&apos;ll find me outdoors in
+                  the sunshine and fresh air. That is, if I&apos;m not at home
+                  enjoying the latest show I&apos;ve gotten hooked on. Some
+                  other passions I like to indulge in also include photography,
+                  cooking, and motorsport weekends. All of which helps me get
+                  away from my devices while still exploring my creative outlet.
                 </p>
               </FadeInUp>
 

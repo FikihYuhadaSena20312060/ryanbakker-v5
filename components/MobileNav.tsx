@@ -61,7 +61,7 @@ function MobileNav() {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="w-[260px] bg-gradient-to-br from-sky-100 dark:from-black via-white dark:via-gray-950 to-sky-100 dark:to-black/90"
+        className="w-[300px] bg-gradient-to-br from-sky-100 dark:from-black via-white dark:via-gray-950 to-sky-100 dark:to-black/90"
       >
         <SheetHeader>
           <SheetTitle>Ryan Bakker</SheetTitle>
@@ -78,6 +78,7 @@ function MobileNav() {
                 <Button
                   className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20"
                   variant="glassSecondary"
+                  size="lg"
                 >
                   <span className="flex flex-row items-center gap-2">
                     <link.icon className="size-5" />
