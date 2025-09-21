@@ -26,7 +26,7 @@ function EducationInfo() {
         </FadeInRight>
 
         <FadeInRight delay={200}>
-          <aside className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-8 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300 border-neutral-300 flex flex-1 flex-col gap-5">
+          <aside className="education-card">
             <h3 className="font-bold uppercase text-xs opacity-60">
               Description
             </h3>
@@ -85,7 +85,7 @@ function EducationInfo() {
 
       <div className="md:space-y-22">
         <FadeInLeft delay={100}>
-          <aside className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-8 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300 border-neutral-300 flex flex-1 flex-col gap-5 md:mt-12 md:mb-8">
+          <aside className="education-card">
             <h3 className="font-bold uppercase text-xs opacity-60">
               Description
             </h3>
@@ -110,7 +110,7 @@ function EducationInfo() {
           </aside>
         </FadeInLeft>
         <FadeInLeft delay={500}>
-          <aside className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-8 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300 border-neutral-300 flex flex-1 flex-col gap-5 md:mt-12">
+          <aside className="education-card">
             <h3 className="font-bold uppercase text-xs opacity-60">
               Description
             </h3>

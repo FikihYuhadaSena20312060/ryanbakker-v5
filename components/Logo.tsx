@@ -11,7 +11,7 @@ const nothingYouCouldDo = Nothing_You_Could_Do({
 function Logo() {
   return (
     <Link href="/">
-      <h2 className={`${nothingYouCouldDo.className} text-2xl font-bold`}>
+      <h2 className={`${nothingYouCouldDo.className} text-[26px] font-bold`}>
         Ryan Bakker
       </h2>
     </Link>

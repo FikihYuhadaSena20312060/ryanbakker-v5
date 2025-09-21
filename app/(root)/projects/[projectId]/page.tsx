@@ -10,6 +10,8 @@ import {
   getSingleProject,
   type Project,
 } from "@/sanity/lib/projects/getSingleProject";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, Info } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -73,15 +75,16 @@ async function SingleProject({
   const project: Project = await getSingleProject(resolvedParams.projectId);
 
   return (
-    <section className="relative -mt-17 overflow-hidden mb-5">
+    <section className="relative -mt-18 overflow-hidden mb-5">
       <div className="relative">
-        <div className="h-[250px] md:overflow-hidden pt-22">
-          <ProjectAnimatedBg />
+        <div className="h-[310px] md:overflow-hidden pt-16 md:pt-22">
           <ProjectHeader project={project} />
+          <div className="h-[350px] w-full absolute left-0 top-0 bg-gradient-to-t from-neutral-500/30 to-transparent -z-[1]" />
+          <ProjectAnimatedBg />
         </div>
       </div>
 
-      <div className="page-container mt-24 md:-mt-5 flex flex-col lg:flex-row justify-between gap-10">
+      <div className="page-container mt-9 md:-mt-5 flex flex-col lg:flex-row justify-between gap-8 ">
         <FadeInUp delay={300}>
           <ImageSlideshow project={project} />
         </FadeInUp>
@@ -90,6 +93,22 @@ async function SingleProject({
           <FadeInUp delay={400}>
             <div className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-8 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300 border-neutral-300 flex flex-1 flex-col gap-8">
               <div>
+                <div className="flex flex-col md:flex-row gap-1.5 pb-5">
+                  <Badge
+                    variant="outline"
+                    className="text-neutral-700 dark:text-white bg-neutral-500/10"
+                  >
+                    <Info />
+                    Under Construction
+                  </Badge>
+                  <Badge
+                    variant="outline"
+                    className="text-neutral-700 dark:text-white bg-neutral-500/10"
+                  >
+                    <Calendar />
+                    Last Updated: {project.lastUpdated}
+                  </Badge>
+                </div>
                 <h3 className="text-lg font-semibold text-accent-foreground">
                   Brief
                 </h3>

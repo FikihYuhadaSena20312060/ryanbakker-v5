@@ -188,3 +188,16 @@
 .section-heading {
   @apply text-[32px] sm:text-4xl lg:text-5xl uppercase font-extrabold lg:font-bold mb-2 tracking-tight bg-gradient-to-tr from-neutral-900 via-neutral-800 to-neutral-600 dark:from-neutral-100/90 dark:via-white/90 dark:to-white/70 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)];
 }
+
+.education-card {
+  @apply bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-8 rounded-xl border dark:border-neutral-700 from-neutral-200/40 via-neutral-100/30 to-neutral-300/50 border-neutral-300 flex flex-1 flex-col gap-5 text-white;
+}
+
+.glass-image-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.glass-image-3d:hover {
+  transform: perspective(1000px) rotateX(8deg) rotateY(5deg) scale(1.02);
+}

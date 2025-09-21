@@ -52,11 +52,11 @@ function Header() {
             ))}
           </ul>
 
-          <div className="group">
+          <div className="group scale-[1.1]">
             <ThemeToggle />
           </div>
 
-          <div className="group block md:hidden">
+          <div className="group block md:hidden scale-[1.1]">
             <MobileNav />
           </div>
         </nav>

@@ -14,11 +14,13 @@ function Education() {
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex flex-col md:flex-row justify-between md:items-end mb-16 gap-8 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between md:items-end mb-2 md:mb-16 gap-8 md:gap-0">
           <div className="flex flex-col">
             <FadeInUp delay={0}>
               <div>
-                <h2 className="section-heading">Education</h2>
+                <h2 className="section-heading from-neutral-100/90! via-white/90! to-white/70!">
+                  Education
+                </h2>
                 <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
                   Summary of my prior and current education. <br />
                   For additional details check out my Linkedin profile.

@@ -178,7 +178,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
   return (
     <section
       id="projects-preview"
-      className="pt-20 bg-gradient-to-tl from-sky-900 dark:from-gray-900 via-sky-800 dark:via-gray-800 to-blue-900 dark:to-blue-950/20 relative overflow-hidden"
+      className="bg-gradient-to-tl from-sky-900 to-blue-900 dark:from-gray-900 via-sky-800 dark:via-gray-800 dark:to-blue-950/20 relative overflow-hidden"
     >
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-sky-400/30 to-blue-500/30 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full blur-3xl" />
@@ -186,7 +186,9 @@ const ProjectsPreview = memo(function ProjectsPreview({
       <div className="w-full px-4 mx-auto max-w-7xl relative">
         <FadeInUp delay={0} duration={800}>
           <div className="mb-8 lg:mb-16">
-            <h2 className="section-heading">Personal Projects</h2>
+            <h2 className="pt-20! from-neutral-100/90! via-white/90! to-white/70! section-heading">
+              Personal Projects
+            </h2>
             <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
               Check out some of the projects I have been working on. View a
               project summary and go to the GitHub repository, where you can see
@@ -208,25 +210,20 @@ const ProjectsPreview = memo(function ProjectsPreview({
                     {project.description}
                   </p>
 
-                  <div className="mb-4 h-32">
-                    <div className="md:right-full md:left-0 z-0">
-                      <Image
-                        src={urlFor(project.images[0]).url()}
-                        alt={`${project.title} Desktop View`}
-                        width={325}
-                        height={128}
-                        className="rounded-lg shadow-lg border w-full h-full border-white/20"
-                        loading="lazy"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                  </div>
+                  <Image
+                    src={urlFor(project.images[0]).url()}
+                    alt={`${project.title} Desktop View`}
+                    width={325}
+                    height={128}
+                    className="rounded-lg shadow-lg border w-full h-full border-white/20"
+                    loading="lazy"
+                  />
 
                   {/* Project Button */}
                   <Link href={`/projects/${project.slug}`}>
                     <Button
                       variant="glassSecondary"
-                      className="w-full backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%] mt-16 sm:mt-10"
+                      className="w-full backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%] mt-5 sm:mt-10"
                     >
                       <span className="relative z-10 flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
                         View Project
@@ -241,14 +238,17 @@ const ProjectsPreview = memo(function ProjectsPreview({
 
           <Link href="/projects">
             <Button
-              className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 mt-5 dark:border-white/20"
-              variant="glassSecondary"
+              className="group overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm w-full mt-6"
+              size="lg"
+              variant="glassPrimary"
             >
-              <div className="flex items-center gap-3">
-                <span>All Projects</span>
-                <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <div>
+                <div className="flex items-center gap-3 ">
+                  <Layers className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <span>View All Projects</span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
             </Button>
           </Link>
         </div>
@@ -330,7 +330,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
                       variant="glassPrimary"
                     >
                       <div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 ">
                           <Layers className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                           <span>All Projects</span>
                         </div>

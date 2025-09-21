@@ -13,7 +13,7 @@ function ImageSlideshow({ project }: { project: Project }) {
   const prevSlide = (): void => {
     setCurrentIndex(
       (prevIndex) =>
-        (prevIndex - 1 + project.images.length) % project.images.length,
+        (prevIndex - 1 + project.images.length) % project.images.length
     );
   };
 
@@ -25,7 +25,7 @@ function ImageSlideshow({ project }: { project: Project }) {
     if (!isHovered) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 8000);
+      }, 6000);
 
       return () => {
         clearInterval(interval);
@@ -42,9 +42,9 @@ function ImageSlideshow({ project }: { project: Project }) {
   };
 
   return (
-    <div className="relative w-full mx-auto bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-8 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300 border-neutral-300 h-full flex-1">
+    <div className="relative w-full mx-auto bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700 shadow-lg p-0 md:p-6 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300 border-neutral-300 h-full flex-1">
       <div
-        className="relative h-[250px] md:h-[460px] mx-4 group flex items-center justify-center"
+        className="relative mx-2 group flex items-center justify-center pt-2"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
@@ -53,22 +53,24 @@ function ImageSlideshow({ project }: { project: Project }) {
           alt={project.images[currentIndex].alt}
           width={800}
           height={600}
-          className="rounded-xl transition-all duration-500 ease-in-out cursor-pointer"
+          className="rounded-lg transition-all duration-500 ease-in-out"
         />
       </div>
-      <Button
-        className="absolute left-0 top-1/2 transform h-[459px] rounded-xl mx-1 -mt-[10px] -translate-y-1/2 bg-transparent text-white p-2 group hover:bg-transparent"
-        onClick={prevSlide}
-      >
-        <ChevronLeft className="text-gray-300 group-hover:text-indigo-600 transition-colors size-6" />
-      </Button>
-      <Button
-        className="absolute right-0 top-1/2 transform h-[459px] rounded-xl mx-1 -mt-[10px] -translate-y-1/2 bg-transparent text-white p-2 group hover:bg-transparent"
-        onClick={nextSlide}
-      >
-        <ChevronRight className="text-gray-300 group-hover:text-indigo-600 transition-colors size-6" />
-      </Button>
-      <div className="flex justify-center mt-4">
+      <div className="w-full flex items-center justify-center">
+        <Button
+          className="rounded-xl mx-1 p-7 bg-transparent text-neutral-500 group hover:bg-transparent"
+          onClick={prevSlide}
+        >
+          <ChevronLeft className="group-hover:text-sky-600 transition-colors size-6" />
+        </Button>
+        <Button
+          className="rounded-xl mx-1 p-7 bg-transparent text-neutral-500 group hover:bg-transparent"
+          onClick={nextSlide}
+        >
+          <ChevronRight className="group-hover:text-sky-600 transition-colors size-6" />
+        </Button>
+      </div>
+      <div className="flex justify-center mb-5">
         {project.images.map((_, index) => (
           <div
             key={index}
