@@ -16,7 +16,7 @@ type ProjectWithUpdatedAt = {
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site";
 
   // Get all projects from Sanity
   const projects = (await getAllProjects()) as ProjectWithUpdatedAt[];
