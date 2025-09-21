@@ -75,7 +75,8 @@ const ProjectsPreview = memo(function ProjectsPreview({
 
   const { isLoading } = useImageLoading({
     images: projectImages,
-    minLoadingTime: 800,
+    minLoadingTime: 400,
+    priority: false,
   });
 
   const handleProjectClick = (index: number) => {

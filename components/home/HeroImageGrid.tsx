@@ -10,12 +10,13 @@ function HeroImageGrid() {
         <div className="flex items-end justify-end col-span-4">
           <FadeInUp delay={600} duration={800}>
             <Image
-              src="/hero/dark-desktop-dashboard.png"
+              src="/hero-optimized/dark-desktop-dashboard.webp"
               alt="Dark Mode Desktop Dashboard"
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
-              loading="lazy"
+              priority
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -25,12 +26,13 @@ function HeroImageGrid() {
         <div className="flex items-end justify-start col-span-1">
           <FadeInUp delay={800} duration={800}>
             <Image
-              src="/hero/dark-mobile-nav.png"
+              src="/hero-optimized/dark-mobile-nav.webp"
               alt="Dark Mode Mobile Nav"
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
               loading="lazy"
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -40,12 +42,13 @@ function HeroImageGrid() {
         <div className="flex items-start justify-end col-span-1">
           <FadeInUp delay={1000} duration={800}>
             <Image
-              src="/hero/dark-mobile-transactions.png"
+              src="/hero-optimized/dark-mobile-transactions.webp"
               alt="Dark Mode Mobile Transactions"
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
               loading="lazy"
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -55,12 +58,13 @@ function HeroImageGrid() {
         <div className="flex items-start justify-start col-span-4">
           <FadeInUp delay={1200} duration={800}>
             <Image
-              src="/hero/dark-desktop-transactions.png"
+              src="/hero-optimized/dark-desktop-transactions.webp"
               alt="Dark Mode Desktop Transactions"
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
               loading="lazy"
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -72,12 +76,13 @@ function HeroImageGrid() {
         <div className="flex items-end justify-end col-span-4">
           <FadeInUp delay={600} duration={800}>
             <Image
-              src="/hero/light-desktop-dashboard.png"
+              src="/hero-optimized/light-desktop-dashboard.webp"
               alt="Light Mode Desktop Dashboard"
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
-              loading="lazy"
+              priority
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -87,12 +92,13 @@ function HeroImageGrid() {
         <div className="flex items-end justify-start col-span-1">
           <FadeInUp delay={800} duration={800}>
             <Image
-              src="/hero/light-mobile-nav.png"
+              src="/hero-optimized/light-mobile-nav.webp"
               alt="Light Mode Mobile Nav"
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
               loading="lazy"
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -102,12 +108,13 @@ function HeroImageGrid() {
         <div className="flex items-start justify-end col-span-1">
           <FadeInUp delay={1000} duration={800}>
             <Image
-              src="/hero/light-mobile-transactions.png"
+              src="/hero-optimized/light-mobile-transactions.webp"
               alt="Light Mode Mobile Transactions"
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
               loading="lazy"
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
@@ -117,12 +124,13 @@ function HeroImageGrid() {
         <div className="flex items-start justify-start col-span-4">
           <FadeInUp delay={1200} duration={800}>
             <Image
-              src="/hero/light-desktop-transactions.png"
+              src="/hero-optimized/light-desktop-transactions.webp"
               alt="Light Mode Desktop Transactions"
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
               loading="lazy"
+              quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>

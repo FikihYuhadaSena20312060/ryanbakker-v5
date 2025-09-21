@@ -74,7 +74,7 @@ function About() {
               alt="photo of me under lights"
               width={380}
               height={400}
-              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-lg shadow-lg my-8 object-cover"
+              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-xl shadow-lg my-8 object-cover"
             />
           </FadeInLeft>
         </div>

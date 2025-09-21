@@ -2,32 +2,33 @@
 
 import { FadeInUp } from "../AnimateOnScroll";
 import { SkeletonHero } from "../ui/skeleton";
-import { useImageLoading } from "@/lib/hooks/useImageLoading";
+import { useProgressiveImageLoading } from "@/lib/hooks/useImageLoading";
 import AnimatedBg from "./AnimatedBg";
 import HeroBtns from "./HeroBtns";
 import HeroImageGrid from "./HeroImageGrid";
 
-// Hero images that need to be loaded
-const HERO_IMAGES = [
-  "/hero/dark-desktop-dashboard.png",
-  "/hero/dark-desktop-transactions.png",
-  "/hero/dark-mobile-nav.png",
-  "/hero/dark-mobile-transactions.png",
-  "/hero/light-desktop-dashboard.png",
-  "/hero/light-desktop-transactions.png",
-  "/hero/light-mobile-nav.png",
-  "/hero/light-mobile-transactions.png",
+// Critical hero images that should load first (above the fold)
+const CRITICAL_HERO_IMAGES = [
+  "/hero-optimized/dark-desktop-dashboard.webp",
+  "/hero-optimized/light-desktop-dashboard.webp",
+];
+
+// Secondary hero images that can load after critical content
+const SECONDARY_HERO_IMAGES = [
+  "/hero-optimized/dark-desktop-transactions.webp",
+  "/hero-optimized/dark-mobile-nav.webp",
+  "/hero-optimized/dark-mobile-transactions.webp",
+  "/hero-optimized/light-desktop-transactions.webp",
+  "/hero-optimized/light-mobile-nav.webp",
+  "/hero-optimized/light-mobile-transactions.webp",
 ];
 
 function Hero() {
-  const { isLoading } = useImageLoading({
-    images: HERO_IMAGES,
-    minLoadingTime: 300,
+  const { criticalLoaded, allLoaded } = useProgressiveImageLoading({
+    criticalImages: CRITICAL_HERO_IMAGES,
+    secondaryImages: SECONDARY_HERO_IMAGES,
+    minLoadingTime: 200,
   });
-
-  if (isLoading) {
-    return <SkeletonHero />;
-  }
 
   return (
     <section id="home" className="min-h-[90vh] overflow-hidden md:-mt-17">
@@ -54,7 +55,14 @@ function Hero() {
             </FadeInUp>
           </div>
 
-          <HeroImageGrid />
+          {/* Only show skeleton for images if critical images aren't loaded yet */}
+          {!criticalLoaded ? (
+            <div className="flex items-center justify-center text-center z-10 max-w-[600px]">
+              <div className="w-[600px] h-[300px] bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse" />
+            </div>
+          ) : (
+            <HeroImageGrid />
+          )}
         </div>
       </div>
     </section>

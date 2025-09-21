@@ -181,6 +181,25 @@ export default function RootLayout({
             __html: JSON.stringify(structuredData),
           }}
         />
+        {/* Preload critical resources */}
+        <link
+          rel="preload"
+          href="/hero-optimized/light-desktop-dashboard.webp"
+          as="image"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          href="/hero-optimized/dark-desktop-dashboard.webp"
+          as="image"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          href="/about-cover.jpeg"
+          as="image"
+          type="image/jpeg"
+        />
       </head>
       <body className={`${notoSans.className} antialiased`}>
         <ThemeProvider

@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "optimize-images": "node scripts/optimize-images.js",
+    "analyze": "ANALYZE=true next build",
+    "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -38,6 +41,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "sharp": "^0.34.4",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.8",
     "typescript": "^5"

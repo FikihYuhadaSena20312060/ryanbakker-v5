@@ -16,7 +16,7 @@ let globalObserver: IntersectionObserver | null = null;
 const observedElements = new Map<Element, () => void>();
 
 const getGlobalObserver = () => {
-  if (!globalObserver) {
+  if (!globalObserver && typeof window !== "undefined") {
     globalObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -60,8 +60,10 @@ export function AnimateOnScroll({
     const currentElement = elementRef.current;
     if (currentElement && !isVisible) {
       const observer = getGlobalObserver();
-      observedElements.set(currentElement, handleVisibility);
-      observer.observe(currentElement);
+      if (observer) {
+        observedElements.set(currentElement, handleVisibility);
+        observer.observe(currentElement);
+      }
     }
 
     return () => {
