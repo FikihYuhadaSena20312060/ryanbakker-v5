@@ -56,12 +56,15 @@ function About() {
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/ryan-bakker/">
+                    <a
+                      href="https://www.linkedin.com/in/ryan-bakker/"
+                      target="_blank"
+                    >
                       <LinkedInLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
                     </a>
                   </li>
                   <li>
-                    <a href="https://github.com/ryanbakker">
+                    <a href="https://github.com/ryanbakker" target="_blank">
                       <GitHubLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
                     </a>
                   </li>
