@@ -187,7 +187,7 @@ export default function RootLayout({
           type="image/jpeg"
         />
       </head>
-      <body className={`${notoSans.className} antialiased`}>
+      <body className={`${notoSans.className} antialiased overflow-x-hidden!`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -195,7 +195,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main>{children}</main>
+          <main className="overflow-x-hidden">{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />
