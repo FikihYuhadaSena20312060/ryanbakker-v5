@@ -8,7 +8,7 @@ function HeroImageGrid() {
       <div className="hidden dark:grid grid-cols-5 gap-2 scale-[1] sm:scale-[0.7] lg:scale-[0.85] xl:scale-[0.9]">
         {/* Top Left - Desktop Dashboard */}
         <div className="flex items-end justify-end col-span-4">
-          <FadeInUp delay={100} duration={600}>
+          <FadeInUp delay={0} duration={600}>
             <Image
               src="/hero-optimized/dark-desktop-dashboard.webp"
               alt="Dark Mode Desktop Dashboard"
@@ -24,7 +24,7 @@ function HeroImageGrid() {
 
         {/* Top Right - Mobile Nav */}
         <div className="flex items-end justify-start col-span-1">
-          <FadeInUp delay={200} duration={600}>
+          <FadeInUp delay={100} duration={600}>
             <Image
               src="/hero-optimized/dark-mobile-nav.webp"
               alt="Dark Mode Mobile Nav"
@@ -40,7 +40,7 @@ function HeroImageGrid() {
 
         {/* Bottom Left - Mobile Transactions */}
         <div className="flex items-start justify-end col-span-1">
-          <FadeInUp delay={300} duration={600}>
+          <FadeInUp delay={200} duration={600}>
             <Image
               src="/hero-optimized/dark-mobile-transactions.webp"
               alt="Dark Mode Mobile Transactions"
@@ -56,7 +56,7 @@ function HeroImageGrid() {
 
         {/* Bottom Right - Desktop Transactions */}
         <div className="flex items-start justify-start col-span-4">
-          <FadeInUp delay={400} duration={600}>
+          <FadeInUp delay={300} duration={600}>
             <Image
               src="/hero-optimized/dark-desktop-transactions.webp"
               alt="Dark Mode Desktop Transactions"
@@ -74,7 +74,7 @@ function HeroImageGrid() {
       <div className="grid dark:hidden grid-cols-5 gap-2">
         {/* Top Left - Desktop Dashboard */}
         <div className="flex items-end justify-end col-span-4">
-          <FadeInUp delay={100} duration={600}>
+          <FadeInUp delay={0} duration={600}>
             <Image
               src="/hero-optimized/light-desktop-dashboard.webp"
               alt="Light Mode Desktop Dashboard"
@@ -90,7 +90,7 @@ function HeroImageGrid() {
 
         {/* Top Right - Mobile Nav */}
         <div className="flex items-end justify-start col-span-1">
-          <FadeInUp delay={200} duration={600}>
+          <FadeInUp delay={100} duration={600}>
             <Image
               src="/hero-optimized/light-mobile-nav.webp"
               alt="Light Mode Mobile Nav"
@@ -106,7 +106,7 @@ function HeroImageGrid() {
 
         {/* Bottom Left - Mobile Transactions */}
         <div className="flex items-start justify-end col-span-1">
-          <FadeInUp delay={300} duration={600}>
+          <FadeInUp delay={200} duration={600}>
             <Image
               src="/hero-optimized/light-mobile-transactions.webp"
               alt="Light Mode Mobile Transactions"
@@ -122,7 +122,7 @@ function HeroImageGrid() {
 
         {/* Bottom Right - Desktop Transactions */}
         <div className="flex items-start justify-start col-span-4">
-          <FadeInUp delay={400} duration={600}>
+          <FadeInUp delay={300} duration={600}>
             <Image
               src="/hero-optimized/light-desktop-transactions.webp"
               alt="Light Mode Desktop Transactions"
