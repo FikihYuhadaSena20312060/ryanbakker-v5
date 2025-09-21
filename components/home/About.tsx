@@ -27,22 +27,24 @@ function About() {
             <div>
               <FadeInUp delay={100}>
                 <p className="opacity-70 max-w-[46rem]">
-                  Welcome to the website of a generalist with just a sprinkle of
-                  ADHD. I&apos;ve been coding since I was thirteen, starting out
-                  with HTML and CSS in Notepad++. These days, I&apos;ve got two
-                  development diplomas under my belt and I&apos;m currently
-                  working toward a Bachelor&apos;s in Computer Science, with
-                  intentions to major in data science so I can dive deeper into
-                  algorithms and big data.
+                  Tech enthusiast with an interest in integrating AI models with
+                  front-end development. Learning to code since I was thirteen,
+                  I began experimenting with HTML and CSS on Notepad++. Today I
+                  now have two diplomas in web development and graphic design,
+                  and I am currently studying for a Bachelor of Computer and
+                  Information Sciences. In which I hope to gain a foundational
+                  understanding of Data Science and Artificial Intelligence, and
+                  to dive deeper into algorithms and big data.
                   <br />
                   <br />
-                  When I&apos;m not glued to a screen and running on a
+                  When I&apos;m not glued to my screen and running on a
                   concerning amount of caffeine, you&apos;ll probably find me
-                  outdoors — camping, hiking, or mountain biking. (This is
-                  starting to sound like a dating app bio, isn&apos;t it?) I
-                  also enjoy photography, and drawing — badly. But hey,
-                  it&apos;s a creative outlet. Thanks for reading the About
-                  section of a potentially crazy person.
+                  outdoors in the sunshine and fresh air. That is, if I&apos;m
+                  not at home enjoying the latest show I&apos;ve gotten hooked
+                  on. Some other passions I like to indulge in also include
+                  photography, cooking, and motorsport weekends. All of which
+                  helps me get away from my devices while still exploring my
+                  creative outlet.
                 </p>
               </FadeInUp>
 

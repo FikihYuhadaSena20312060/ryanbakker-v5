@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Ryan Bakker",
   },
   description:
-    "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies. View my portfolio and projects.",
+    "Hi I’m Ryan, a Web Developer. Experienced in front-end with a focus on Next.js development, a tech enthusiast, and currently studying to complete a Bachelor of Computer and Information Sciences in Auckland, New Zealand. Explore my latest projects, which incorporate AI and modern development principles.",
   keywords: [
     "Ryan Bakker",
     "Full-stack developer",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site",
     title: "Ryan Bakker | Full-Stack Developer & Designer",
     description:
-      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
+      "Hi I'm Ryan, a Web Developer. Tech enthusiast and developer, studying computer science in Auckland, New Zealand. View Projects · GitHub Profile.",
     images: [
       {
         url: "/about-cover.jpeg",
@@ -81,20 +81,6 @@ export const metadata: Metadata = {
         alt: "Ryan Bakker - Full-Stack Developer & Designer",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Bakker | Full-Stack Developer & Designer",
-    description:
-      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
-    images: ["/about-cover.jpeg"],
-    creator: "@ryanbakker",
-  },
-  verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
-  },
-  alternates: {
-    canonical: process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site",
   },
   icons: {
     icon: [
@@ -131,9 +117,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Ryan Bakker",
-    jobTitle: "Full-Stack Developer & Designer",
+    jobTitle: "Web Developer",
     description:
-      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
+      "Hi I'm Ryan, a Web Developer. Tech enthusiast and developer, studying computer science in Auckland, New Zealand. View Projects · GitHub Profile.",
     url: baseUrl,
     image: `${baseUrl}/about-cover.jpeg`,
     sameAs: [

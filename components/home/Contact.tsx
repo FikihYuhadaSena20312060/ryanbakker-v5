@@ -15,8 +15,8 @@ function Contact() {
             <FadeInUp delay={0}>
               <h2 className="section-heading">Contact</h2>
               <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
-                Get in touch by messaging me on Linkedin or flick me an email
-                directly.
+                Feel free to connect or reach out if you're interested in
+                collaborating or discussing new ideas.
               </p>
             </FadeInUp>
           </div>

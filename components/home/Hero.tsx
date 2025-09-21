@@ -44,9 +44,10 @@ function Hero() {
             </FadeInUp>
 
             <FadeInUp delay={150}>
-              <p className="pt-4 max-w-96 text-neutral-700 dark:text-neutral-300">
-                Tech enthusiast and developer, studying computer science in
-                Auckland, New Zealand.
+              <p className="pt-4 max-w-[565px] text-neutral-700 dark:text-neutral-300">
+                Experienced in front-end with a focus on Next.js development, a
+                tech enthusiast, and currently studying to complete a Bachelor
+                of Computer and Information Sciences in Auckland, New Zealand.
               </p>
             </FadeInUp>
 
