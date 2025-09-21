@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ProjectsClient } from "@/app/(root)/projects/ProjectsClient";
 import { FadeInUp } from "@/components/AnimateOnScroll";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getPaginatedProjects } from "@/sanity/lib/projects/getAllProjects";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -59,33 +61,30 @@ async function Projects() {
             </FadeInUp>
           </div>
           <FadeInUp delay={400}>
-            <Button
-              className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm w-full md:w-auto"
-              variant="glassPrimary"
-            >
-              <div>
-                <div className="flex items-center gap-3">
-                  <GitHubLogoIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  GitHub Profile
+            <Link href="https://www.github.com/ryanbakker" target="_blank">
+              <Button
+                className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm w-full md:w-auto"
+                variant="glassPrimary"
+              >
+                <div>
+                  <div className="flex items-center gap-3">
+                    <GitHubLogoIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    GitHub Profile
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-              </div>
-            </Button>
+              </Button>
+            </Link>
           </FadeInUp>
         </div>
 
         <Suspense
           fallback={
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <div
-                  key={`skeleton-${index}`}
-                  className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300 animate-pulse"
-                >
-                  <div className="bg-gray-300 dark:bg-gray-600 rounded-lg h-48 mb-3"></div>
-                  <div className="bg-gray-300 dark:bg-gray-600 rounded h-6 w-3/4"></div>
-                </div>
-              ))}
+            <div className="flex flex-col items-center justify-center py-12">
+              <LoadingSpinner size="lg" />
+              <p className="mt-4 text-gray-600 dark:text-gray-400">
+                Loading projects...
+              </p>
             </div>
           }
         >

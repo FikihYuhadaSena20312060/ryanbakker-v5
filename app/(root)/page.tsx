@@ -35,8 +35,53 @@ export const metadata: Metadata = {
 export default async function Home() {
   const projects = await getFeaturedProjects();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ryan Bakker",
+    jobTitle: "Full-Stack Developer & Designer",
+    description:
+      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site",
+    sameAs: [
+      "https://github.com/ryanbakker",
+      "https://www.linkedin.com/in/ryan-bakker/",
+      "https://www.behance.net/ryanbakker",
+    ],
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "Tailwind CSS",
+      "Web Development",
+      "UI/UX Design",
+    ],
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Auckland University of Technology",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Yoobee College of Innovation",
+      },
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Hero />
       <ProjectsPreview projects={projects} />
       <About />

@@ -1,20 +1,11 @@
 "use client";
 
-import {
-  FolderGit2,
-  Globe,
-  Layers,
-  MoveRight,
-  PanelTop,
-  Rocket,
-  Smartphone,
-} from "lucide-react";
+import { Layers, MoveRight, PanelTop } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import { urlFor } from "@/sanity/lib/image";
-import { Project } from "@/sanity/lib/projects/getAllProjects";
 import { useImageLoading } from "@/lib/hooks/useImageLoading";
 import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
@@ -25,12 +16,10 @@ function FadeInOnClick({
   children,
   isVisible,
   delay = 0,
-  duration = 1000,
 }: {
   children: React.ReactNode;
   isVisible: boolean;
   delay?: number;
-  duration?: number;
 }) {
   const [shouldRender, setShouldRender] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -46,7 +35,7 @@ function FadeInOnClick({
       setIsAnimating(false);
       setShouldRender(false);
     }
-  }, [isVisible, delay, duration]);
+  }, [isVisible, delay]);
 
   if (!shouldRender) return null;
 
@@ -56,7 +45,7 @@ function FadeInOnClick({
       style={{
         opacity: isAnimating ? 1 : 0,
         transform: isAnimating ? "translateX(0)" : "translateX(20px)",
-        transitionDuration: `${duration}ms`,
+        transitionDuration: `900ms`,
         transitionProperty: "opacity, transform",
         transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
       }}
@@ -66,20 +55,22 @@ function FadeInOnClick({
   );
 }
 
-function ProjectsPreview({ projects }: { projects: any }) {
+const ProjectsPreview = memo(function ProjectsPreview({
+  projects,
+}: {
+  projects: any;
+}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [imagesVisible, setImagesVisible] = useState(true);
   const { theme } = useTheme();
   const [isDesktop, setIsDesktop] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  console.log(projects);
-
   // Extract all project images for loading detection
   const projectImages =
     projects?.flatMap(
       (project: any) =>
-        project.images?.map((image: any) => urlFor(image).url()) || [],
+        project.images?.map((image: any) => urlFor(image).url()) || []
     ) || [];
 
   const { isLoading } = useImageLoading({
@@ -194,9 +185,7 @@ function ProjectsPreview({ projects }: { projects: any }) {
       <div className="w-full px-4 mx-auto max-w-7xl relative">
         <FadeInUp delay={0} duration={800}>
           <div className="mb-8 lg:mb-16">
-            <h2 className="text-4xl lg:text-5xl uppercase font-extrabold lg:font-bold text-white dark:text-white mb-3 tracking-tight">
-              Personal Projects
-            </h2>
+            <h2 className="section-heading">Personal Projects</h2>
             <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
               Check out some of the projects I have been working on. View a
               project summary and go to the GitHub repository, where you can see
@@ -211,36 +200,23 @@ function ProjectsPreview({ projects }: { projects: any }) {
             {projects.map((project: any, index: any) => (
               <FadeInUp key={project.title} delay={index * 100} duration={600}>
                 <div className="group p-6 rounded-xl bg-white/10 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg shadow-sky-900/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-2xl hover:shadow-sky-900/20">
-                  <div className="flex flex-row items-center gap-3 mb-3">
-                    <div className="p-2 rounded-lg bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/10 transition-colors duration-300">
-                      <PanelTop className="w-5 h-5 text-white/90 dark:text-white/80" />
-                    </div>
-                    <h5 className="font-bold text-white/95">{project.title}</h5>
-                  </div>
-                  <p className="text-sm text-white/80 dark:text-white/75 leading-relaxed mb-4">
+                  <h5 className="font-extrabold text-white/95">
+                    {project.title}
+                  </h5>
+                  <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1 mb-4">
                     {project.description}
                   </p>
 
-                  {/* Mobile Images - Overlapping Layout */}
-                  <div className="relative mb-4 h-32">
-                    {/* Mobile Image - Smaller, overlapping on top */}
-                    <div className="absolute -bottom-10 md:top-2 md:right-2 z-10">
+                  <div className="mb-4 h-32">
+                    <div className="md:right-full md:left-0 z-0">
                       <Image
                         src={urlFor(project.images[0]).url()}
-                        alt={`${project.title} Mobile View`}
-                        width={250}
-                        height={120}
-                        className="rounded-lg shadow-xl border border-white/30"
-                      />
-                    </div>
-                    {/* Desktop Image - Larger, positioned behind */}
-                    <div className="absolute top-0 right-0 md:right-full md:left-0 z-0">
-                      <Image
-                        src={urlFor(project.images[1]).url()}
                         alt={`${project.title} Desktop View`}
                         width={325}
                         height={128}
-                        className="rounded-lg shadow-lg border border-white/20 object-cover"
+                        className="rounded-lg shadow-lg border w-full h-full border-white/20"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   </div>
@@ -249,7 +225,7 @@ function ProjectsPreview({ projects }: { projects: any }) {
                   <Link href={`/projects/${project.slug}`}>
                     <Button
                       variant="glassSecondary"
-                      className="w-full backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%] mt-10"
+                      className="w-full backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%] mt-16 sm:mt-10"
                     >
                       <span className="relative z-10 flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
                         View Project
@@ -261,16 +237,17 @@ function ProjectsPreview({ projects }: { projects: any }) {
               </FadeInUp>
             ))}
           </div>
+
           <Link href="/projects">
             <Button
-              variant="glassPrimary"
-              className="w-full backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%] mt-10"
-              size="lg"
+              className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 mt-5 dark:border-white/20"
+              variant="glassSecondary"
             >
-              <span className="relative z-10 flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
-                All Projects
-                <MoveRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
-              </span>
+              <div className="flex items-center gap-3">
+                <span>All Projects</span>
+                <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
             </Button>
           </Link>
         </div>
@@ -322,30 +299,26 @@ function ProjectsPreview({ projects }: { projects: any }) {
           <div className="relative flex-1 w-full min-h-[700px]">
             <div className="absolute bottom-[170px] right-0 w-full">
               <div className="relative">
-                <FadeInOnClick
-                  isVisible={imagesVisible}
-                  delay={100}
-                  duration={900}
-                >
+                <FadeInOnClick isVisible={imagesVisible} delay={100}>
                   <Image
                     src={urlFor(projects[selectedIndex].images[0]).url()}
                     alt={`${projects[selectedIndex].title} Desktop View`}
                     width={900}
                     height={700}
                     className="absolute rounded-xl shadow-2xl shadow-sky-950/40 bottom-[80px] -right-[280px] z-0 border border-white/20"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </FadeInOnClick>
-                <FadeInOnClick
-                  isVisible={imagesVisible}
-                  delay={300}
-                  duration={900}
-                >
+                <FadeInOnClick isVisible={imagesVisible} delay={300}>
                   <Image
                     src={urlFor(projects[selectedIndex].images[1]).url()}
                     alt={`${projects[selectedIndex].title} Mobile View`}
                     width={550}
                     height={500}
                     className="absolute rounded-xl shadow-xl bottom-[79.5px] left-[130px] z-20 border border-white/20"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </FadeInOnClick>
 
@@ -384,6 +357,6 @@ function ProjectsPreview({ projects }: { projects: any }) {
       </div>
     </section>
   );
-}
+});
 
 export default ProjectsPreview;

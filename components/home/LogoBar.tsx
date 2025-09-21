@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { memo } from "react";
 import { LOGOS } from "@/constants";
 
 function LogoBar() {
@@ -21,4 +22,4 @@ function LogoBar() {
   );
 }
 
-export default LogoBar;
+export default memo(LogoBar);

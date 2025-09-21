@@ -1,6 +1,5 @@
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import {
-  Github,
   GraduationCap,
   House,
   Layers,
@@ -12,7 +11,7 @@ import {
 export const NAV_LINKS = [
   {
     label: "Home",
-    href: "/#home",
+    href: "/",
     icon: House,
     external: false,
   },

@@ -69,6 +69,7 @@ function MobileNav() {
                 target={link.external ? "_blank" : "_self"}
                 className="flex items-center gap-4 hover:text-blue-600 transition-colors"
                 onClick={link.external ? undefined : handleHashLinkClick}
+                prefetch={!link.external}
               >
                 <link.icon className="size-5" />
                 {link.label}

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, memo } from "react";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import {
   Pagination,
@@ -28,7 +28,9 @@ interface ProjectsClientProps {
   };
 }
 
-export function ProjectsClient({ initialData }: ProjectsClientProps) {
+export const ProjectsClient = memo(function ProjectsClient({
+  initialData,
+}: ProjectsClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [data, setData] = useState(initialData);
@@ -39,7 +41,9 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
   const fetchProjects = useCallback(async (page: number) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`/api/projects?page=${page}&limit=6`);
+      const response = await fetch(`/api/projects?page=${page}&limit=6`, {
+        next: { revalidate: 60 }, // Cache for 60 seconds
+      });
       const newData = await response.json();
       setData(newData);
     } catch (error) {
@@ -146,13 +150,20 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
             delay={500 + index * 150}
             className="bg-gradient-to-tr dark:from-neutral-800/80 dark:via-neutral-900/80 dark:to-neutral-700/80 shadow-lg p-3 rounded-xl border dark:border-neutral-700 dark:hover:shadow-sky-950/60 hover:-translate-y-1 transition-all hover:shadow-sky-100/80 from-neutral-200/80 via-neutral-100/80 to-neutral-300/80 border-neutral-300"
           >
-            <Link key={project._id} href={`/projects/${project.slug}`}>
+            <Link
+              key={project._id}
+              href={`/projects/${project.slug}`}
+              prefetch={true}
+            >
               <Image
                 src={project.coverImage.asset.url}
                 alt={project.coverImage.alt}
                 width={600}
                 height={600}
                 className="rounded-lg"
+                priority={index < 3} // Prioritize first 3 images
+                loading={index < 3 ? "eager" : "lazy"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <h3 className="font-semibold pt-3 pb-1 text-lg text-wrap truncate">
                 {project.title}
@@ -215,4 +226,4 @@ export function ProjectsClient({ initialData }: ProjectsClientProps) {
       )}
     </>
   );
-}
+});

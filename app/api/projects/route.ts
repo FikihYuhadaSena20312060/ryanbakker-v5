@@ -9,7 +9,11 @@ export async function GET(request: NextRequest) {
 
     const data = await getPaginatedProjects(page, limit);
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+      },
+    });
   } catch (error) {
     console.error("Error fetching paginated projects:", error);
     return NextResponse.json(

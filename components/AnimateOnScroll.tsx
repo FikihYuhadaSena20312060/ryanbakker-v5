@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface AnimateOnScrollProps {
   children: React.ReactNode;
@@ -10,6 +10,34 @@ interface AnimateOnScrollProps {
   direction?: "up" | "down" | "left" | "right" | "fade";
   distance?: number;
 }
+
+// Shared IntersectionObserver for better performance
+let globalObserver: IntersectionObserver | null = null;
+const observedElements = new Map<Element, () => void>();
+
+const getGlobalObserver = () => {
+  if (!globalObserver) {
+    globalObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const callback = observedElements.get(entry.target);
+            if (callback) {
+              callback();
+              observedElements.delete(entry.target);
+              globalObserver?.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+  }
+  return globalObserver;
+};
 
 export function AnimateOnScroll({
   children,
@@ -22,32 +50,27 @@ export function AnimateOnScroll({
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
+  const handleVisibility = useCallback(() => {
+    setTimeout(() => {
+      setIsVisible(true);
+    }, delay);
+  }, [delay]);
 
+  useEffect(() => {
     const currentElement = elementRef.current;
-    if (currentElement) {
+    if (currentElement && !isVisible) {
+      const observer = getGlobalObserver();
+      observedElements.set(currentElement, handleVisibility);
       observer.observe(currentElement);
     }
 
     return () => {
       if (currentElement) {
-        observer.unobserve(currentElement);
+        observedElements.delete(currentElement);
+        globalObserver?.unobserve(currentElement);
       }
     };
-  }, [delay]);
+  }, [handleVisibility, isVisible]);
 
   const getTransformStyles = () => {
     if (!isVisible) {

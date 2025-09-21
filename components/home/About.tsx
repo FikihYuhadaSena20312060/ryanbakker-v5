@@ -17,9 +17,7 @@ function About() {
         <div className="page-container flex flex-col md:flex-row md:gap-16">
           <div className="flex flex-col justify-center md:pb-16">
             <FadeInUp delay={0}>
-              <h2 className="text-4xl lg:text-5xl uppercase font-extrabold lg:font-bold  dark:text-white tracking-tight bg-gradient-to-tr from-neutral-900 via-neutral-800 to-neutral-600 dark:from-neutral-200/90 dark:via-white/70 dark:to-white/50 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">
-                About Me
-              </h2>
+              <h2 className="section-heading">About Me</h2>
             </FadeInUp>
 
             <FadeInUp delay={50} className="flex">
@@ -74,9 +72,9 @@ function About() {
             <Image
               src="/about-cover.jpeg"
               alt="photo of me under lights"
-              width={400}
+              width={380}
               height={400}
-              className="max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-lg shadow-lg my-8 object-cover"
+              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-lg shadow-lg my-8 object-cover"
             />
           </FadeInLeft>
         </div>

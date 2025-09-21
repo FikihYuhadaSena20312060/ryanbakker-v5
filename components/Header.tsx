@@ -43,6 +43,7 @@ function Header() {
                   target={link.external ? "_blank" : "_self"}
                   className="desktop-nav-link"
                   onClick={link.external ? undefined : handleHashLinkClick}
+                  prefetch={!link.external}
                 >
                   <link.icon className="size-4" />
                   {link.label}

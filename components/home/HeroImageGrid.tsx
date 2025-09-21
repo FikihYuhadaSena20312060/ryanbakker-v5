@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { memo } from "react";
 import { FadeInUp } from "../AnimateOnScroll";
 
 function HeroImageGrid() {
@@ -14,6 +15,8 @@ function HeroImageGrid() {
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -27,6 +30,8 @@ function HeroImageGrid() {
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -40,6 +45,8 @@ function HeroImageGrid() {
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -53,6 +60,8 @@ function HeroImageGrid() {
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -68,6 +77,8 @@ function HeroImageGrid() {
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -81,6 +92,8 @@ function HeroImageGrid() {
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -94,6 +107,8 @@ function HeroImageGrid() {
               width={200}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -107,6 +122,8 @@ function HeroImageGrid() {
               width={600}
               height={300}
               className="rounded-lg shadow-lg hover:scale-[1.012] transition-all duration-300 ease-out"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </FadeInUp>
         </div>
@@ -115,4 +132,4 @@ function HeroImageGrid() {
   );
 }
 
-export default HeroImageGrid;
+export default memo(HeroImageGrid);

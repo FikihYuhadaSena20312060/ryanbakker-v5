@@ -10,110 +10,115 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-noto-sans",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site";
-
-  return {
-    metadataBase: new URL(baseUrl),
-    title: {
-      default: "Ryan Bakker | Full-Stack Developer & Designer",
-      template: "%s | Ryan Bakker",
-    },
-    description:
-      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies. View my portfolio and projects.",
-    keywords: [
-      "Ryan Bakker",
-      "Full-stack developer",
-      "Web developer",
-      "React developer",
-      "Next.js developer",
-      "TypeScript developer",
-      "Frontend developer",
-      "Backend developer",
-      "Web designer",
-      "UI/UX designer",
-      "Portfolio",
-      "Auckland University of Technology",
-      "Yoobee College",
-    ],
-    authors: [{ name: "Ryan Bakker" }],
-    creator: "Ryan Bakker",
-    publisher: "Ryan Bakker",
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-    openGraph: {
-      type: "website",
-      locale: "en_US",
-      url: baseUrl,
-      siteName: "Ryan Bakker Portfolio",
-      title: "Ryan Bakker | Full-Stack Developer & Designer",
-      description:
-        "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
-      images: [
-        {
-          url: "/about-cover.jpeg",
-          width: 1200,
-          height: 630,
-          alt: "Ryan Bakker - Full-Stack Developer & Designer",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Ryan Bakker | Full-Stack Developer & Designer",
-      description:
-        "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
-      images: ["/about-cover.jpeg"],
-      creator: "@ryanbakker",
-    },
-    robots: {
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site"
+  ),
+  title: {
+    default: "Ryan Bakker | Full-Stack Developer & Designer",
+    template: "%s | Ryan Bakker",
+  },
+  description:
+    "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies. View my portfolio and projects.",
+  keywords: [
+    "Ryan Bakker",
+    "Full-stack developer",
+    "Web developer",
+    "React developer",
+    "Next.js developer",
+    "TypeScript developer",
+    "Frontend developer",
+    "Backend developer",
+    "Web designer",
+    "UI/UX designer",
+    "Portfolio",
+    "Auckland University of Technology",
+    "Yoobee College",
+    "Software Engineer",
+    "Web Development",
+    "JavaScript",
+    "Node.js",
+    "MongoDB",
+    "Express.js",
+    "Tailwind CSS",
+  ],
+  authors: [{ name: "Ryan Bakker" }],
+  creator: "Ryan Bakker",
+  publisher: "Ryan Bakker",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Ryan Bakker Portfolio",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site",
+    title: "Ryan Bakker | Full-Stack Developer & Designer",
+    description:
+      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
+    images: [
+      {
+        url: "/about-cover.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Ryan Bakker - Full-Stack Developer & Designer",
       },
-    },
-    verification: {
-      google: process.env.GOOGLE_SITE_VERIFICATION,
-    },
-    alternates: {
-      canonical: baseUrl,
-    },
-    icons: {
-      icon: [
-        {
-          url: "/ryan-lightmode-favicon.svg",
-          media: "(prefers-color-scheme: light)",
-        },
-        {
-          url: "/ryan-darkmode-favicon.svg",
-          media: "(prefers-color-scheme: dark)",
-        },
-      ],
-      apple: [
-        {
-          url: "/ryan-lightmode-favicon.svg",
-          media: "(prefers-color-scheme: light)",
-        },
-        {
-          url: "/ryan-darkmode-favicon.svg",
-          media: "(prefers-color-scheme: dark)",
-        },
-      ],
-    },
-  };
-}
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ryan Bakker | Full-Stack Developer & Designer",
+    description:
+      "Full-stack developer and designer creating modern web experiences. Specializing in React, Next.js, TypeScript, and modern web technologies.",
+    images: ["/about-cover.jpeg"],
+    creator: "@ryanbakker",
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site",
+  },
+  icons: {
+    icon: [
+      {
+        url: "/ryan-lightmode-favicon.svg",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/ryan-darkmode-favicon.svg",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [
+      {
+        url: "/ryan-lightmode-favicon.svg",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/ryan-darkmode-favicon.svg",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,

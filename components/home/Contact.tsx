@@ -13,9 +13,7 @@ function Contact() {
         <div className="page-container flex flex-col">
           <div className="flex flex-col justify-center pb-6">
             <FadeInUp delay={0}>
-              <h2 className="text-4xl lg:text-5xl uppercase font-extrabold lg:font-bold  dark:text-white tracking-tight bg-gradient-to-tr from-neutral-900 via-neutral-800 to-neutral-600 dark:from-neutral-200/90 dark:via-white/70 dark:to-white/50 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">
-                Contact
-              </h2>
+              <h2 className="section-heading">Contact</h2>
               <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
                 Get in touch by messaging me on Linkedin or flick me an email
                 directly.
