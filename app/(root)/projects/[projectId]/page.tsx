@@ -12,6 +12,7 @@ import {
 } from "@/sanity/lib/projects/getSingleProject";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Info } from "lucide-react";
+import AnimatedBg from "@/components/AnimatedBg";
 
 export async function generateMetadata({
   params,
@@ -76,15 +77,15 @@ async function SingleProject({
 
   return (
     <section className="relative -mt-18 overflow-hidden mb-5">
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="h-[310px] md:overflow-hidden pt-16 md:pt-22">
           <ProjectHeader project={project} />
           <div className="h-[350px] w-full absolute left-0 top-0 bg-gradient-to-t from-neutral-500/30 to-transparent -z-[1]" />
-          <ProjectAnimatedBg />
+          <AnimatedBg />
         </div>
       </div>
 
-      <div className="page-container mt-9 md:-mt-5 flex flex-col lg:flex-row justify-between gap-8 ">
+      <div className="page-container md:-mt-5 flex flex-col lg:flex-row justify-between gap-8 ">
         <FadeInUp delay={300}>
           <ImageSlideshow project={project} />
         </FadeInUp>

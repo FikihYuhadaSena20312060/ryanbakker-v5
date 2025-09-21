@@ -181,19 +181,19 @@ const AnimatedBg = () => {
       new Blob(
         canvas.width * (0.2 + Math.random() * 0.2), // Random position in left area
         canvas.height * (0.2 + Math.random() * 0.2), // Random position in top area
-        180 + Math.random() * 40, // Random size between 180-220
+        120 + Math.random() * 40, // Random size between 180-220
         "oklch(0.65 0.25 70.08)"
       ), // Deep Amber
       new Blob(
         canvas.width * (0.5 + Math.random() * 0.3), // Random position in center-right area
         canvas.height * (0.4 + Math.random() * 0.3), // Random position in center area
-        180 + Math.random() * 40, // Random size between 180-220
+        120 + Math.random() * 40, // Random size between 180-220
         "oklch(0.55 0.25 184.704)"
       ), // Deep Blue
       new Blob(
         canvas.width * (0.3 + Math.random() * 0.4), // Random position in center area
         canvas.height * (0.6 + Math.random() * 0.2), // Random position in bottom area
-        180 + Math.random() * 40, // Random size between 180-220
+        120 + Math.random() * 40, // Random size between 180-220
         "oklch(0.65 0.25 350)"
       ), // Deep Pink
     ];
@@ -231,7 +231,7 @@ const AnimatedBg = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full -z-10 bg-neutral-400/60 dark:bg-neutral-900/90 transition-opacity from-0% to-100% ease-in-out min-h-[116vh] md:min-h-[90vh] md:max-h-[90vh]"
+      className="absolute inset-0 w-full h-full bg-neutral-400/60 dark:bg-neutral-900/90 transition-opacity from-0% to-100% ease-in-out"
       style={{ opacity: 0.5 }}
     />
   );

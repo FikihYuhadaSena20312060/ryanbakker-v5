@@ -178,7 +178,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
   return (
     <section
       id="projects-preview"
-      className="bg-gradient-to-tl from-sky-900 to-blue-900 dark:from-gray-900 via-sky-800 dark:via-gray-800 dark:to-blue-950/20 relative overflow-hidden"
+      className="bg-gradient-to-tl from-sky-900 to-blue-900 dark:from-gray-900 via-sky-800 dark:via-gray-800 dark:to-blue-950/20 relative overflow-hidden z-40 mt-[74px]"
     >
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-sky-400/30 to-blue-500/30 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full blur-3xl" />
@@ -186,7 +186,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
       <div className="w-full px-4 mx-auto max-w-7xl relative">
         <FadeInUp delay={0} duration={800}>
           <div className="mb-8 lg:mb-16">
-            <h2 className="pt-20! from-neutral-100/90! via-white/90! to-white/70! section-heading">
+            <h2 className="from-neutral-100/90! via-white/90! to-white/70! section-heading pt-20">
               Personal Projects
             </h2>
             <p className="text-gray-200/80 dark:text-gray-400 max-w-2xl text-sm md:text-base">
@@ -202,35 +202,47 @@ const ProjectsPreview = memo(function ProjectsPreview({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {projects.map((project: any, index: any) => (
               <FadeInUp key={project.title} delay={index * 100} duration={600}>
-                <div className="group p-6 rounded-xl bg-white/10 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg shadow-sky-900/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-2xl hover:shadow-sky-900/20">
-                  <h5 className="font-extrabold text-white/95">
-                    {project.title}
-                  </h5>
-                  <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1 mb-4">
-                    {project.description}
-                  </p>
+                <div className="p-6 rounded-xl bg-white/10 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg shadow-sky-900/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-2xl hover:shadow-sky-900/20">
+                  <FadeInUp delay={300} duration={200}>
+                    <h5 className="font-extrabold text-white/95">
+                      {project.title}
+                    </h5>
+                  </FadeInUp>
 
-                  <Image
-                    src={urlFor(project.images[0]).url()}
-                    alt={`${project.title} Desktop View`}
-                    width={325}
-                    height={128}
-                    className="rounded-lg shadow-lg border w-full h-full border-white/20"
-                    loading="lazy"
-                  />
+                  <FadeInUp delay={400} duration={250}>
+                    <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1 mb-4">
+                      {project.description}
+                    </p>
+                  </FadeInUp>
 
-                  {/* Project Button */}
-                  <Link href={`/projects/${project.slug}`}>
-                    <Button
-                      variant="glassSecondary"
-                      className="w-full backdrop-blur-md bg-white/8 dark:bg-white/6 border-white/20 hover:bg-white/12 hover:border-white/25 text-white/90 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden hover:translate-x-1 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-[100%] mt-5 sm:mt-10"
-                    >
-                      <span className="relative z-10 flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
-                        View Project
-                        <MoveRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
-                      </span>
-                    </Button>
-                  </Link>
+                  <FadeInUp delay={500} duration={300}>
+                    <Image
+                      src={urlFor(project.images[0]).url()}
+                      alt={`${project.title} Desktop View`}
+                      width={325}
+                      height={128}
+                      className="rounded-lg shadow-lg border w-full h-full border-white/20"
+                      loading="lazy"
+                    />
+                  </FadeInUp>
+
+                  <FadeInUp delay={600} duration={350}>
+                    {/* Project Button */}
+                    <div className="group relative block">
+                      <Link href={`/projects/${project.slug}`}>
+                        <Button
+                          className="group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 w-full md:w-auto cursor-pointer text-sm bg-white/60 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20 mt-4"
+                          variant="glassSecondary"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span>GitHub Profile</span>
+                            <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                        </Button>
+                      </Link>
+                    </div>
+                  </FadeInUp>
                 </div>
               </FadeInUp>
             ))}

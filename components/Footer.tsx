@@ -38,7 +38,7 @@ function Footer() {
           </span>
         </div>
 
-        <ul className="flex flex-col md:flex-row items-center gap-3 md:gap-7">
+        <ul className="flex flex-col md:flex-row items-center gap-7">
           {FOOTER_LINKS.map((link) => {
             const Icon = link.icon;
             return (

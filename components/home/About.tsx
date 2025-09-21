@@ -107,7 +107,7 @@ function About() {
               alt="photo of me under lights"
               width={380}
               height={400}
-              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-2xl my-8 object-cover backdrop-blur-xl bg-white/20 dark:bg-white/15 border border-sky-200/30 dark:border-gray-600/25 shadow-[0_25px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_50px_rgba(255,255,255,0.15)] hover:bg-white/30 dark:hover:bg-white/25 hover:border-sky-300/40 dark:hover:border-gray-500/35 hover:shadow-[0_35px_70px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_35px_70px_rgba(255,255,255,0.25)] glass-image-3d max-h-[60vh]"
+              className="max-w-[90vw] sm:max-w-[100vw] md:max-h-[80vh] mx-auto md:w-[40vw] rounded-2xl my-8 object-cover backdrop-blur-xl bg-white/20 dark:bg-white/15 border border-sky-200/30 dark:border-gray-600/25 shadow-[0_25px_50px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_50px_rgba(255,255,255,0.15)] hover:bg-white/30 dark:hover:bg-white/25 hover:border-sky-300/40 dark:hover:border-gray-500/35 hover:shadow-[0_35px_70px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_35px_70px_rgba(255,255,255,0.25)] glass-image-3d max-h-[60vh] transition-all!"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             />
