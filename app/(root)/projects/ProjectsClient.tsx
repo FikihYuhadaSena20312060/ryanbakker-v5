@@ -15,6 +15,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import type { Project } from "@/sanity/lib/projects/getAllProjects";
+import { Button } from "@/components/ui/button";
 
 interface ProjectsClientProps {
   initialData: {
@@ -70,26 +71,28 @@ export const ProjectsClient = memo(function ProjectsClient({
     const items = [];
 
     // Always show first page
-    items.push(
-      <PaginationItem key={1}>
-        <PaginationLink
-          onClick={() => handlePageChange(1)}
-          isActive={currentPage === 1}
-          className="cursor-pointer"
-          size="icon"
-        >
-          1
-        </PaginationLink>
-      </PaginationItem>
-    );
+    items
+      .push
+      // <PaginationItem key={1}>
+      //   <PaginationLink
+      //     onClick={() => handlePageChange(1)}
+      //     isActive={currentPage === 1}
+      //     className="cursor-pointer"
+      //     size="icon"
+      //   >
+      //     1
+      //   </PaginationLink>
+      // </PaginationItem>
+      ();
 
     // Show ellipsis if there's a gap after first page
     if (currentPage > 4) {
-      items.push(
-        <PaginationItem key="ellipsis1">
-          <PaginationEllipsis />
-        </PaginationItem>
-      );
+      items
+        .push
+        // <PaginationItem key="ellipsis1">
+        //   <PaginationEllipsis />
+        // </PaginationItem>
+        ();
     }
 
     // Show pages around current page
@@ -98,47 +101,50 @@ export const ProjectsClient = memo(function ProjectsClient({
 
     for (let i = start; i <= end; i++) {
       if (i !== 1 && i !== totalPages) {
-        items.push(
-          <PaginationItem key={i}>
-            <PaginationLink
-              onClick={() => handlePageChange(i)}
-              isActive={currentPage === i}
-              className="cursor-pointer"
-              size="icon"
-            >
-              {i}
-            </PaginationLink>
-          </PaginationItem>
-        );
+        items
+          .push
+          // <PaginationItem key={i}>
+          //   <PaginationLink
+          //     onClick={() => handlePageChange(i)}
+          //     isActive={currentPage === i}
+          //     className="cursor-pointer"
+          //     size="icon"
+          //   >
+          //     {i}
+          //   </PaginationLink>
+          // </PaginationItem>
+          ();
       }
     }
 
     // Show ellipsis if there's a gap before last page
     if (currentPage < totalPages - 3) {
-      items.push(
-        <PaginationItem key="ellipsis2">
-          <PaginationEllipsis />
-        </PaginationItem>
-      );
+      items
+        .push
+        // <PaginationItem key="ellipsis2">
+        //   <PaginationEllipsis />
+        // </PaginationItem>
+        ();
     }
 
     // Always show last page (if more than 1 page)
     if (totalPages > 1) {
-      items.push(
-        <PaginationItem key={totalPages}>
-          <PaginationLink
-            onClick={() => handlePageChange(totalPages)}
-            isActive={currentPage === totalPages}
-            className="cursor-pointer"
-            size="icon"
-          >
-            {totalPages}
-          </PaginationLink>
-        </PaginationItem>
-      );
+      items
+        .push
+        // <PaginationItem key={totalPages}>
+        //   <PaginationLink
+        //     onClick={() => handlePageChange(totalPages)}
+        //     isActive={currentPage === totalPages}
+        //     className="cursor-pointer"
+        //     size="icon"
+        //   >
+        //     {totalPages}
+        //   </PaginationLink>
+        // </PaginationItem>
+        ();
     }
 
-    return items;
+    // return items;
   };
 
   return (
@@ -182,22 +188,24 @@ export const ProjectsClient = memo(function ProjectsClient({
       {data.pagination.totalPages > 1 && (
         <div className="mt-12 flex justify-center">
           <Pagination>
-            <PaginationContent>
+            <PaginationContent className="flex flex-row items-center gap-3">
               <PaginationItem>
                 <PaginationPrevious
                   onClick={() =>
                     currentPage > 1 && handlePageChange(currentPage - 1)
                   }
-                  className={
+                  className={`${
                     currentPage <= 1
                       ? "pointer-events-none opacity-50"
                       : "cursor-pointer"
-                  }
+                  } group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 md:w-auto cursor-pointer text-sm bg-white/10 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20 w-[150px]!`}
                   size="default"
-                />
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                </PaginationPrevious>
               </PaginationItem>
 
-              {renderPaginationItems()}
+              {/* {renderPaginationItems()} */}
 
               <PaginationItem>
                 <PaginationNext
@@ -205,13 +213,15 @@ export const ProjectsClient = memo(function ProjectsClient({
                     currentPage < data.pagination.totalPages &&
                     handlePageChange(currentPage + 1)
                   }
-                  className={
+                  className={`${
                     currentPage >= data.pagination.totalPages
                       ? "pointer-events-none opacity-50"
                       : "cursor-pointer"
-                  }
+                  } group relative overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 transition-all duration-300 md:w-auto cursor-pointer text-sm bg-white/10 hover:bg-white/70 text-neutral-900 dark:text-foreground/90 border border-neutral-300 hover:border-neutral-400 dark:border-white/20 w-[150px]!`}
                   size="default"
-                />
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                </PaginationNext>
               </PaginationItem>
             </PaginationContent>
           </Pagination>

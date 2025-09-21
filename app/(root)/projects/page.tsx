@@ -39,12 +39,8 @@ async function Projects() {
   const initialData = await getPaginatedProjects(1, 6);
 
   return (
-    <section className="bg-gradient-to-br from-sky-100 dark:from-black via-white dark:via-gray-900 to-sky-100 dark:to-black/90 -mt-18 pt-14 min-h-screen">
-      <div className="page-container pt-14">
-        <FadeInUp delay={0} className="hidden md:block">
-          <Separator className="mb-8" />
-        </FadeInUp>
-
+    <section className="bg-gradient-to-br from-sky-100 dark:from-black via-white dark:via-gray-900 to-sky-100 dark:to-black/90 -mt-18 pt-14 min-h-screen z-[500]">
+      <div className="page-container mt-10">
         <div className="flex flex-col md:flex-row sm:items-end justify-between gap-6">
           <div>
             <FadeInUp delay={200}>

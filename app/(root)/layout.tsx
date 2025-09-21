@@ -195,7 +195,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="overflow-x-hidden">{children}</main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />
