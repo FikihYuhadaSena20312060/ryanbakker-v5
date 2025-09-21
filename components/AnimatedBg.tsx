@@ -51,6 +51,9 @@ const AnimatedBg = () => {
     const isLowEndDevice =
       isMobile && (navigator.hardwareConcurrency || 4) <= 2;
 
+    // Set the base size for blobs depending on the device type
+    const baseBlobSize = isMobile ? 90 : 180;
+
     // Set canvas size
     const resizeCanvas = () => {
       if (!canvas) return;
@@ -181,19 +184,19 @@ const AnimatedBg = () => {
       new Blob(
         canvas.width * (0.2 + Math.random() * 0.2), // Random position in left area
         canvas.height * (0.2 + Math.random() * 0.2), // Random position in top area
-        120 + Math.random() * 40, // Random size between 180-220
+        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
         "oklch(0.65 0.25 70.08)"
       ), // Deep Amber
       new Blob(
         canvas.width * (0.5 + Math.random() * 0.3), // Random position in center-right area
         canvas.height * (0.4 + Math.random() * 0.3), // Random position in center area
-        120 + Math.random() * 40, // Random size between 180-220
+        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
         "oklch(0.55 0.25 184.704)"
       ), // Deep Blue
       new Blob(
         canvas.width * (0.3 + Math.random() * 0.4), // Random position in center area
         canvas.height * (0.6 + Math.random() * 0.2), // Random position in bottom area
-        120 + Math.random() * 40, // Random size between 180-220
+        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
         "oklch(0.65 0.25 350)"
       ), // Deep Pink
     ];
