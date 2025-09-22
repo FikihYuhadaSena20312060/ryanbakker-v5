@@ -4,7 +4,7 @@ import { FadeInUp } from "../AnimateOnScroll";
 
 function HeroImageGrid() {
   return (
-    <div className="flex items-center justify-center text-center z-10 max-w-[540px]">
+    <div className="flex items-center justify-center text-center z-[500] max-w-[540px]">
       <div className="hidden dark:grid grid-cols-5 gap-2">
         {/* Top Left - Desktop Dashboard */}
         <div className="flex items-end justify-end col-span-4">

@@ -7,9 +7,12 @@ import HeroImageGrid from "./HeroImageGrid";
 
 function Hero() {
   return (
-    <section id="home" className="min-h-[90vh] overflow-hidden md:-mt-17">
+    <section
+      id="home"
+      className="min-h-screen overflow-hidden -mt-[71px] pt-18 md:-mt-[74px] relative"
+    >
       <AnimatedBg />
-      <div className="page-container md:pt-32!">
+      <div className="page-container md:pt-12! relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-col justify-start flex-1">
             <FadeInUp delay={0}>

@@ -18,7 +18,7 @@ const AnimatedBg = () => {
     const _isFirefox = /Firefox/.test(navigator.userAgent);
     const isMobile =
       /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
+        navigator.userAgent
       );
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -52,13 +52,14 @@ const AnimatedBg = () => {
       isMobile && (navigator.hardwareConcurrency || 4) <= 2;
 
     // Set the base size for blobs depending on the device type
-    const baseBlobSize = isMobile ? 60 : 180;
+    // Slightly larger on desktop for more presence
+    const baseBlobSize = isMobile ? 60 : 300;
 
     // Set canvas size
     const resizeCanvas = () => {
       if (!canvas) return;
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = window.innerHeight * 1; // Extend 50% beyond viewport height
     };
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
@@ -179,26 +180,35 @@ const AnimatedBg = () => {
       }
     }
 
+    // Choose slightly brighter colors on desktop
+    const colorAmber = isMobile
+      ? "oklch(65% 0.25 70.08)"
+      : "oklch(72% 0.27 70.08)";
+    const colorBlue = isMobile
+      ? "oklch(68.5% 0.169 237.323)"
+      : "oklch(74% 0.18 237.323)";
+    const colorPink = isMobile ? "oklch(65% 0.25 350)" : "oklch(72% 0.27 350)";
+
     // Create blobs with varied sizes and positions
     const blobs = [
       new Blob(
         canvas.width * (0.2 + Math.random() * 0.2), // Random position in left area
         canvas.height * (0.2 + Math.random() * 0.2), // Random position in top area
-        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(0.65 0.25 70.08)",
-      ), // Deep Amber
+        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or ~220-260 (desktop)
+        colorAmber
+      ), // Amber
       new Blob(
         canvas.width * (0.5 + Math.random() * 0.3), // Random position in center-right area
         canvas.height * (0.4 + Math.random() * 0.3), // Random position in center area
-        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(68.5% 0.169 237.323)",
-      ), // Deep Blue
+        baseBlobSize + Math.random() * 40,
+        colorBlue
+      ), // Blue
       new Blob(
         canvas.width * (0.3 + Math.random() * 0.4), // Random position in center area
         canvas.height * (0.6 + Math.random() * 0.2), // Random position in bottom area
-        baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(0.65 0.25 350)",
-      ), // Deep Pink
+        baseBlobSize + Math.random() * 40,
+        colorPink
+      ), // Pink
     ];
 
     // Animation loop with proper timing
@@ -234,7 +244,7 @@ const AnimatedBg = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full bg-neutral-400/60 dark:bg-neutral-900/90 transition-opacity from-0% to-100% ease-in-out -z-1"
+      className="absolute -top-[20px] inset-0 w-full h-[150vh] bg-neutral-400/60 dark:bg-neutral-900/90 transition-opacity from-0% to-100% ease-in-out -z-1"
       style={{ opacity: 0.5 }}
     />
   );

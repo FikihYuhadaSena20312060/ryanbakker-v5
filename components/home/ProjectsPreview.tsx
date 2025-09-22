@@ -176,7 +176,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
   return (
     <section
       id="projects-preview"
-      className="bg-gradient-to-tl from-sky-900 to-blue-900 dark:from-gray-900 via-sky-800 dark:via-gray-800 dark:to-blue-950/20 relative overflow-hidden z-40 mt-[74px]"
+      className="bg-gradient-to-tl from-sky-900 to-blue-900 dark:from-gray-900 via-sky-800 dark:via-gray-800 dark:to-blue-950/20 relative overflow-hidden z-40"
     >
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-sky-400/30 to-blue-500/30 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/30 to-indigo-500/30 rounded-full blur-3xl" />
