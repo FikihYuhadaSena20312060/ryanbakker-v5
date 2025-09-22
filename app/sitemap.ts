@@ -1,19 +1,10 @@
 import type { MetadataRoute } from "next";
-import { getAllProjects } from "@/sanity/lib/projects/getAllProjects";
+import {
+  getAllProjects,
+  type Project,
+} from "@/sanity/lib/projects/getAllProjects";
 
-type ProjectWithUpdatedAt = {
-  _id: string;
-  title: string;
-  slug: string;
-  coverImage: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-    alt: string;
-  };
-  _updatedAt: string;
-};
+type ProjectWithUpdatedAt = Project & { _updatedAt?: string };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site";
@@ -38,12 +29,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Dynamic project pages
-  const projectPages = projects.map((project: ProjectWithUpdatedAt) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: new Date(project._updatedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const projectPages = projects.map((project: ProjectWithUpdatedAt) => {
+    const candidate = project._updatedAt
+      ? new Date(project._updatedAt)
+      : undefined;
+    const isValid =
+      candidate instanceof Date && !Number.isNaN(candidate.getTime());
+    return {
+      url: `${baseUrl}/projects/${project.slug}`,
+      lastModified: isValid ? candidate! : new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    };
+  });
 
   return [...staticPages, ...projectPages];
 }

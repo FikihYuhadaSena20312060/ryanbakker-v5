@@ -6,22 +6,36 @@ export type Project = {
   title: string;
   description: string;
   slug: string;
-  images: {
+  coverImageDesktop: {
     asset: {
       _id: string;
       url: string;
     };
     alt: string;
-  }[];
+  };
+  coverImageMobile: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt: string;
+  };
 };
 
 const featuredProjectsQuery =
-  defineQuery(`*[_type == "project" && isFeatured == true] {
+  defineQuery(`*[_type == "project" && isFeatured == true] | order(orderRank) {
     _id,
     title,
     description,
     "slug": slug.current,
-    images[] {
+    coverImageDesktop {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    coverImageMobile {
       asset->{
         _id,
         url

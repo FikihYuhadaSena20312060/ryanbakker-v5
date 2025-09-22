@@ -4,21 +4,21 @@ import { sanityFetch } from "../live";
 export type Project = {
   _id: string;
   title: string;
-  lastUpdated: string;
+  lastUpdated: Date;
   slug: string;
-  coverImage: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-    alt: string;
-  };
   isUnderConstruction: boolean;
   isFeatured: boolean;
   githubUrl: string;
   description: string;
   brief: string;
-  images: {
+  desktopImages: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt: string;
+  }[];
+  mobileImages: {
     asset: {
       _id: string;
       url: string;
@@ -34,19 +34,19 @@ export const getSingleProjectQuery = defineQuery(
     title,
     lastUpdated,
     "slug": slug.current,
-    coverImage {
+    isUnderConstruction,
+    isFeatured,
+    githubUrl,
+    description,
+    brief,
+    desktopImages[] {
       asset->{
         _id,
         url
       },
       alt
     },
-    isUnderConstruction,
-    isFeatured,
-    githubUrl,
-    description,
-    brief,
-    images[] {
+    mobileImages[] {
       asset->{
         _id,
         url
@@ -54,7 +54,7 @@ export const getSingleProjectQuery = defineQuery(
       alt
     },
     tools
-  }`,
+  }`
 );
 
 export async function getSingleProject(slug: string) {
@@ -63,5 +63,10 @@ export async function getSingleProject(slug: string) {
     params: { slug },
   });
 
-  return data;
+  if (!data) return data;
+
+  return {
+    ...data,
+    lastUpdated: new Date((data as { lastUpdated: string }).lastUpdated),
+  } as Project;
 }

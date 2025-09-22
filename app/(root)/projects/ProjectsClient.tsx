@@ -164,8 +164,8 @@ export const ProjectsClient = memo(function ProjectsClient({
             >
               <FadeInUp delay={600} duration={150}>
                 <Image
-                  src={project.coverImage.asset.url}
-                  alt={project.coverImage.alt}
+                  src={project.coverImageDesktop.asset.url}
+                  alt={project.coverImageDesktop.alt}
                   width={600}
                   height={600}
                   className="rounded-lg"

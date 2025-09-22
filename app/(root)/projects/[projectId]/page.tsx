@@ -46,10 +46,10 @@ export async function generateMetadata({
       url: `${baseUrl}/projects/${project.slug}`,
       images: [
         {
-          url: project.coverImage.asset.url,
+          url: project.desktopImages?.[0]?.asset.url || "",
           width: 1200,
           height: 630,
-          alt: project.coverImage.alt,
+          alt: project.desktopImages?.[0]?.alt || project.title,
         },
       ],
     },
@@ -59,7 +59,7 @@ export async function generateMetadata({
       description:
         project.brief ||
         `View ${project.title} project details, technologies used, and GitHub repository.`,
-      images: [project.coverImage.asset.url],
+      images: [project.desktopImages?.[0]?.asset.url || ""],
     },
     alternates: {
       canonical: `${baseUrl}/projects/${project.slug}`,
@@ -85,8 +85,8 @@ async function SingleProject({
         </div>
       </div>
 
-      <div className="page-container flex flex-col lg:flex-row justify-between gap-8 ">
-        <FadeInUp delay={300}>
+      <div className="page-container w-full! flex-1 flex flex-col lg:flex-row justify-between gap-8 ">
+        <FadeInUp delay={300} className="w-full">
           <ImageSlideshow project={project} />
         </FadeInUp>
 
@@ -107,7 +107,12 @@ async function SingleProject({
                     className="text-neutral-700 dark:text-white bg-neutral-500/10"
                   >
                     <Calendar />
-                    Last Updated: {project.lastUpdated}
+                    Last Updated:{" "}
+                    {project.lastUpdated.toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "2-digit",
+                      year: "numeric",
+                    })}
                   </Badge>
                 </div>
                 <h3 className="text-lg font-semibold text-accent-foreground">

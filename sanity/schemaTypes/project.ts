@@ -1,10 +1,16 @@
 import { defineField, defineType } from "sanity";
+import {
+  orderRankField,
+  orderRankOrdering,
+} from "@sanity/orderable-document-list";
 
 export default defineType({
   name: "project",
   title: "Project",
   type: "document",
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: "project" }),
     defineField({
       name: "title",
       title: "Title",
@@ -14,7 +20,7 @@ export default defineType({
     defineField({
       name: "lastUpdated",
       title: "Last Updated",
-      type: "string",
+      type: "date",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -28,8 +34,8 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "coverImage",
-      title: "Cover Image",
+      name: "coverImageDesktop",
+      title: "Cover Image Desktop",
       type: "image",
       options: { hotspot: true },
       fields: [
@@ -37,7 +43,23 @@ export default defineType({
           name: "alt",
           title: "Alt text",
           type: "string",
-          description: "The primary image for the project.",
+          description: "The primary large image for the project.",
+          validation: (Rule) => Rule.required().min(5).max(160),
+        }),
+      ],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "coverImageMobile",
+      title: "Cover Image Mobile",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+          description: "The primary small image for the project.",
           validation: (Rule) => Rule.required().min(5).max(160),
         }),
       ],
@@ -82,8 +104,29 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "images",
-      title: "Images",
+      name: "desktopImages",
+      title: "Desktop Images",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Alt text",
+              type: "string",
+              validation: (Rule) => Rule.required().min(5).max(160),
+            }),
+          ],
+        },
+      ],
+      options: { layout: "grid" },
+      validation: (Rule) => Rule.min(1),
+    }),
+    defineField({
+      name: "mobileImages",
+      title: "Mobile Images",
       type: "array",
       of: [
         {

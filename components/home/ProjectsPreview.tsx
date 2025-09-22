@@ -202,7 +202,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {projects.map((project: any, index: any) => (
               <FadeInUp key={project.title} delay={index * 100} duration={600}>
-                <div className="p-6 rounded-xl bg-white/10 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg shadow-sky-900/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-2xl hover:shadow-sky-900/20">
+                <div className="p-4 rounded-xl bg-white/10 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg shadow-sky-900/10 transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-2xl hover:shadow-sky-900/20">
                   <FadeInUp delay={300} duration={200}>
                     <h5 className="font-extrabold text-white/95">
                       {project.title}
@@ -210,20 +210,30 @@ const ProjectsPreview = memo(function ProjectsPreview({
                   </FadeInUp>
 
                   <FadeInUp delay={400} duration={250}>
-                    <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1 mb-4">
+                    <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1">
                       {project.description}
                     </p>
                   </FadeInUp>
 
                   <FadeInUp delay={500} duration={300}>
-                    <Image
-                      src={urlFor(project.images[0]).url()}
-                      alt={`${project.title} Desktop View`}
-                      width={325}
-                      height={128}
-                      className="rounded-lg shadow-lg border w-full h-full border-white/20"
-                      loading="lazy"
-                    />
+                    <div className="relative w-full min-h-[180px] sm:min-h-[220px]">
+                      <Image
+                        src={urlFor(project.coverImageDesktop).url()}
+                        alt={`${project.title} Desktop View`}
+                        width={200}
+                        height={220}
+                        className="absolute bottom-0 right-0 w-[88%] object-cover rounded-lg shadow-lg border border-white/20"
+                        loading="lazy"
+                      />
+                      <Image
+                        src={urlFor(project.coverImageMobile).url()}
+                        alt={`${project.title} Mobile View`}
+                        width={76}
+                        height={220}
+                        className="absolute bottom-[0px] left-0 sm:left-6 rounded-lg shadow-xl border border-white/30 ring-0.5 ring-white/30 backdrop-blur-sm"
+                        loading="lazy"
+                      />
+                    </div>
                   </FadeInUp>
 
                   <FadeInUp delay={600} duration={350}>
@@ -314,22 +324,24 @@ const ProjectsPreview = memo(function ProjectsPreview({
               <div className="relative">
                 <FadeInOnClick isVisible={imagesVisible} delay={100}>
                   <Image
-                    src={urlFor(projects[selectedIndex].images[0]).url()}
+                    src={urlFor(
+                      projects[selectedIndex].coverImageDesktop
+                    ).url()}
                     alt={`${projects[selectedIndex].title} Desktop View`}
                     width={900}
                     height={700}
-                    className="absolute rounded-xl shadow-2xl shadow-sky-950/40 bottom-[80px] -right-[280px] z-0 border border-white/20"
+                    className="absolute rounded-xl shadow-2xl shadow-sky-950/40 bottom-[80px] -right-[280px] z-0 border border-white/30 ring-1 ring-white/20 brightness-[0.95]"
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </FadeInOnClick>
                 <FadeInOnClick isVisible={imagesVisible} delay={300}>
                   <Image
-                    src={urlFor(projects[selectedIndex].images[1]).url()}
+                    src={urlFor(projects[selectedIndex].coverImageMobile).url()}
                     alt={`${projects[selectedIndex].title} Mobile View`}
-                    width={550}
+                    width={200}
                     height={500}
-                    className="absolute rounded-xl shadow-xl bottom-[79.5px] left-[130px] z-20 border border-white/20"
+                    className="absolute rounded-xl shadow-2xl bottom-[79.5px] left-[190px] z-30 border border-white/30 ring-1 ring-white/30 backdrop-blur-sm"
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />

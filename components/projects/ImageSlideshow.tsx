@@ -2,23 +2,28 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Project } from "@/sanity/lib/projects/getSingleProject";
 import { Button } from "../ui/button";
 
 function ImageSlideshow({ project }: { project: Project }) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const slides = useMemo(() => {
+    const desktop = project.desktopImages ?? [];
+    const mobile = project.mobileImages ?? [];
+    return [...desktop, ...mobile];
+  }, [project.desktopImages, project.mobileImages]);
+  const slideCount = slides.length;
 
   const prevSlide = (): void => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + project.images.length) % project.images.length
-    );
+    if (slideCount === 0) return;
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + slideCount) % slideCount);
   };
 
   const nextSlide = (): void => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % project.images.length);
+    if (slideCount === 0) return;
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slideCount);
   };
 
   useEffect(() => {
@@ -31,7 +36,7 @@ function ImageSlideshow({ project }: { project: Project }) {
         clearInterval(interval);
       };
     }
-  }, [isHovered]);
+  }, [isHovered, slideCount]);
 
   const handleMouseOver = (): void => {
     setIsHovered(true);
@@ -48,13 +53,18 @@ function ImageSlideshow({ project }: { project: Project }) {
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        <Image
-          src={project.images[currentIndex].asset.url}
-          alt={project.images[currentIndex].alt}
-          width={800}
-          height={600}
-          className="rounded-lg transition-all duration-500 ease-in-out"
-        />
+        <div className="w-full rounded-xl flex items-center justify-center">
+          {slides[currentIndex] && (
+            <Image
+              src={slides[currentIndex].asset.url}
+              alt={slides[currentIndex].alt || project.title}
+              height={200}
+              width={500}
+              className="shadow-xl rounded-lg max-h-[40vh] w-auto"
+              loading="eager"
+            />
+          )}
+        </div>
       </div>
       <div className="w-full flex items-center justify-center">
         <Button
@@ -71,7 +81,7 @@ function ImageSlideshow({ project }: { project: Project }) {
         </Button>
       </div>
       <div className="flex justify-center mb-5">
-        {project.images.map((_, index) => (
+        {Array.from({ length: slideCount }).map((_, index) => (
           <div
             key={index}
             className={`h-1 w-10 mx-1 bg-gradient-to-tr ${

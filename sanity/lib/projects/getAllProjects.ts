@@ -5,7 +5,15 @@ export type Project = {
   _id: string;
   title: string;
   slug: string;
-  coverImage: {
+  _updatedAt?: string;
+  coverImageDesktop: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt: string;
+  };
+  coverImageMobile: {
     asset: {
       _id: string;
       url: string;
@@ -17,32 +25,46 @@ export type Project = {
 const allProjectsQuery =
   defineQuery(`*[_type == "project"] | order(_updatedAt desc) {
     _id,
-        title,
-        "slug": slug.current,
-        coverImage {
-            asset->{
-                _id,
-                url
-            },
-            alt
-        },
-        _updatedAt,
-    }`);
+    title,
+    "slug": slug.current,
+    _updatedAt,
+    coverImageDesktop {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    coverImageMobile {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+  }`);
 
 const paginatedProjectsQuery =
   defineQuery(`*[_type == "project"] | order(_updatedAt desc) [$start...$end] {
     _id,
-        title,
-        "slug": slug.current,
-        coverImage {
-            asset->{
-                _id,
-                url
-            },
-            alt
-        },
-        _updatedAt,
-    }`);
+    title,
+    "slug": slug.current,
+    _updatedAt,
+    coverImageDesktop {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    coverImageMobile {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+  }`);
 
 const totalProjectsQuery = defineQuery(`count(*[_type == "project"])`);
 
@@ -56,7 +78,7 @@ export async function getAllProjects() {
 
 export async function getPaginatedProjects(
   page: number = 1,
-  limit: number = 6,
+  limit: number = 6
 ) {
   const start = (page - 1) * limit;
   const end = start + limit;
