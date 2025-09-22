@@ -1,8 +1,8 @@
+import { House, Search } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import { Button } from "@/components/ui/button";
-import { House, Search } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Page Not Found | 404",

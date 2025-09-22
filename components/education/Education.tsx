@@ -30,7 +30,10 @@ function Education() {
           </div>
 
           <div className="md:flex">
-            <Link href="https://www.linkedin.com/in/ryanbakker" target="_blank">
+            <Link
+              href="https://www.linkedin.com/in/ryan-bakker"
+              target="_blank"
+            >
               <Button
                 className="group overflow-hidden px-8 py-4 rounded-md font-semibold hover:scale-[1.03] active:scale-95 cursor-pointer transition-all duration-300 text-sm w-full md:w-auto"
                 variant="glassPrimary"

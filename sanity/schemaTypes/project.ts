@@ -1,8 +1,8 @@
-import { defineField, defineType } from "sanity";
 import {
   orderRankField,
   orderRankOrdering,
 } from "@sanity/orderable-document-list";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "project",

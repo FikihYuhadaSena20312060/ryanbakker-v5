@@ -1,18 +1,17 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Calendar, Info } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnimatedBg from "@/components/AnimatedBg";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import ImageSlideshow from "@/components/projects/ImageSlideshow";
-import ProjectAnimatedBg from "@/components/projects/ProjectAnimatedBg";
 import ProjectHeader from "@/components/projects/ProjectHeader";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   getSingleProject,
   type Project,
 } from "@/sanity/lib/projects/getSingleProject";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, Info } from "lucide-react";
-import AnimatedBg from "@/components/AnimatedBg";
 
 export async function generateMetadata({
   params,
@@ -21,7 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolvedParams = await params;
   const project: Project = await getSingleProject(resolvedParams.projectId);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site";
 
   return {
     title: project.title,

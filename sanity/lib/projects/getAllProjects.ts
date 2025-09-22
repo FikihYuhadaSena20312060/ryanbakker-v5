@@ -78,7 +78,7 @@ export async function getAllProjects() {
 
 export async function getPaginatedProjects(
   page: number = 1,
-  limit: number = 6
+  limit: number = 6,
 ) {
   const start = (page - 1) * limit;
   const end = start + limit;

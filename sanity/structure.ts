@@ -1,5 +1,5 @@
-import type { StructureResolver } from "sanity/structure";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
+import type { StructureResolver } from "sanity/structure";
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S, context) =>
@@ -13,6 +13,6 @@ export const structure: StructureResolver = (S, context) =>
         context,
       }),
       ...S.documentTypeListItems().filter(
-        (listItem) => listItem.getId() !== "project"
+        (listItem) => listItem.getId() !== "project",
       ),
     ]);

@@ -36,7 +36,7 @@ function ImageSlideshow({ project }: { project: Project }) {
         clearInterval(interval);
       };
     }
-  }, [isHovered, slideCount]);
+  }, [isHovered, nextSlide]);
 
   const handleMouseOver = (): void => {
     setIsHovered(true);

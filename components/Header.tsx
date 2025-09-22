@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { NAV_LINKS } from "@/constants";
+import { FadeInUp } from "./AnimateOnScroll";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 import { ThemeToggle } from "./ThemeToggle";
-import { FadeInUp } from "./AnimateOnScroll";
 
 function Header() {
-  const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const _handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
     const href = e.currentTarget.getAttribute("href");

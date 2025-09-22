@@ -27,7 +27,7 @@ export const urlForOptimized = (
       | "center"
       | "focalpoint"
       | "entropy";
-  }
+  },
 ) => {
   const {
     width,

@@ -3,10 +3,9 @@
 import { Layers, MoveRight, PanelTop } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { useEffect, useState, memo } from "react";
-import { urlFor } from "@/sanity/lib/image";
+import { memo, useEffect, useState } from "react";
 import { useImageLoading } from "@/lib/hooks/useImageLoading";
+import { urlFor } from "@/sanity/lib/image";
 import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
 import { Skeleton, SkeletonProjectCard, SkeletonText } from "../ui/skeleton";
@@ -62,7 +61,6 @@ const ProjectsPreview = memo(function ProjectsPreview({
 }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [imagesVisible, setImagesVisible] = useState(true);
-  const { theme } = useTheme();
   const [isDesktop, setIsDesktop] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -114,7 +112,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
       handleProjectClick(nextIndex);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isDesktop, isPaused, selectedIndex]);
+  }, [isDesktop, isPaused, selectedIndex, handleProjectClick]);
 
   if (isLoading) {
     return (
@@ -210,7 +208,7 @@ const ProjectsPreview = memo(function ProjectsPreview({
                   </FadeInUp>
 
                   <FadeInUp delay={400} duration={250}>
-                    <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1">
+                    <p className="text-xs font-medium text-white/80 dark:text-white/75 leading-relaxed mt-1 pb-2">
                       {project.description}
                     </p>
                   </FadeInUp>

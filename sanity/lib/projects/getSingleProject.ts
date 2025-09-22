@@ -54,7 +54,7 @@ export const getSingleProjectQuery = defineQuery(
       alt
     },
     tools
-  }`
+  }`,
 );
 
 export async function getSingleProject(slug: string) {

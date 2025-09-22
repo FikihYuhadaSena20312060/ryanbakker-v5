@@ -16,7 +16,7 @@ const notoSans = Noto_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site"
+    process.env.NEXT_PUBLIC_BASE_URL || "https://ryanbakker.site",
   ),
   title: {
     default: "Ryan Bakker | Full-Stack Developer & Designer",

@@ -1,15 +1,11 @@
 "use client";
 
-import {
-  EnvelopeClosedIcon,
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-} from "@radix-ui/react-icons";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 import { FadeInLeft, FadeInRight, FadeInUp } from "../AnimateOnScroll";
 import LogoBar from "./LogoBar";
-import { Mail } from "lucide-react";
 
 function About() {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -86,12 +82,17 @@ function About() {
                     <a
                       href="https://www.linkedin.com/in/ryan-bakker/"
                       target="_blank"
+                      rel="noopener"
                     >
                       <LinkedInLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
                     </a>
                   </li>
                   <li>
-                    <a href="https://github.com/ryanbakker" target="_blank">
+                    <a
+                      href="https://github.com/ryanbakker"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <GitHubLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
                     </a>
                   </li>

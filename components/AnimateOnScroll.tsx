@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface AnimateOnScrollProps {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ const getGlobalObserver = () => {
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      }
+      },
     );
   }
   return globalObserver;

@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     console.error("Error fetching paginated projects:", error);
     return NextResponse.json(
       { error: "Failed to fetch projects" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

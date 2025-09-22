@@ -3,19 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState, memo } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import type { Project } from "@/sanity/lib/projects/getAllProjects";
-import { Button } from "@/components/ui/button";
 
 interface ProjectsClientProps {
   initialData: {
@@ -66,13 +63,12 @@ export const ProjectsClient = memo(function ProjectsClient({
     router.push(`?${params.toString()}`);
   };
 
-  const renderPaginationItems = () => {
+  const _renderPaginationItems = () => {
     const { currentPage, totalPages } = data.pagination;
     const items = [];
 
     // Always show first page
-    items
-      .push
+    items.push(
       // <PaginationItem key={1}>
       //   <PaginationLink
       //     onClick={() => handlePageChange(1)}
@@ -83,16 +79,15 @@ export const ProjectsClient = memo(function ProjectsClient({
       //     1
       //   </PaginationLink>
       // </PaginationItem>
-      ();
+    );
 
     // Show ellipsis if there's a gap after first page
     if (currentPage > 4) {
-      items
-        .push
+      items.push(
         // <PaginationItem key="ellipsis1">
         //   <PaginationEllipsis />
         // </PaginationItem>
-        ();
+      );
     }
 
     // Show pages around current page
@@ -101,8 +96,7 @@ export const ProjectsClient = memo(function ProjectsClient({
 
     for (let i = start; i <= end; i++) {
       if (i !== 1 && i !== totalPages) {
-        items
-          .push
+        items.push(
           // <PaginationItem key={i}>
           //   <PaginationLink
           //     onClick={() => handlePageChange(i)}
@@ -113,24 +107,22 @@ export const ProjectsClient = memo(function ProjectsClient({
           //     {i}
           //   </PaginationLink>
           // </PaginationItem>
-          ();
+        );
       }
     }
 
     // Show ellipsis if there's a gap before last page
     if (currentPage < totalPages - 3) {
-      items
-        .push
+      items.push(
         // <PaginationItem key="ellipsis2">
         //   <PaginationEllipsis />
         // </PaginationItem>
-        ();
+      );
     }
 
     // Always show last page (if more than 1 page)
     if (totalPages > 1) {
-      items
-        .push
+      items.push(
         // <PaginationItem key={totalPages}>
         //   <PaginationLink
         //     onClick={() => handlePageChange(totalPages)}
@@ -141,7 +133,7 @@ export const ProjectsClient = memo(function ProjectsClient({
         //     {totalPages}
         //   </PaginationLink>
         // </PaginationItem>
-        ();
+      );
     }
 
     // return items;

@@ -1,5 +1,6 @@
 "use client";
 
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Mail, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -13,7 +14,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,12 +101,17 @@ function MobileNav() {
               <a
                 href="https://www.linkedin.com/in/ryan-bakker/"
                 target="_blank"
+                rel="noopener"
               >
                 <LinkedInLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
               </a>
             </li>
             <li>
-              <a href="https://github.com/ryanbakker" target="_blank">
+              <a
+                href="https://github.com/ryanbakker"
+                target="_blank"
+                rel="noopener"
+              >
                 <GitHubLogoIcon className="opacity-70 hover:opacity-100 transition-all h-6 w-6" />
               </a>
             </li>

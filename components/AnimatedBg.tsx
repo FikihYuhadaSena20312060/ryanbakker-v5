@@ -15,10 +15,10 @@ const AnimatedBg = () => {
     // Browser detection for optimizations
     const isSafari =
       /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-    const isFirefox = /Firefox/.test(navigator.userAgent);
+    const _isFirefox = /Firefox/.test(navigator.userAgent);
     const isMobile =
       /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
+        navigator.userAgent,
       );
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -185,19 +185,19 @@ const AnimatedBg = () => {
         canvas.width * (0.2 + Math.random() * 0.2), // Random position in left area
         canvas.height * (0.2 + Math.random() * 0.2), // Random position in top area
         baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(0.65 0.25 70.08)"
+        "oklch(0.65 0.25 70.08)",
       ), // Deep Amber
       new Blob(
         canvas.width * (0.5 + Math.random() * 0.3), // Random position in center-right area
         canvas.height * (0.4 + Math.random() * 0.3), // Random position in center area
         baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(68.5% 0.169 237.323)"
+        "oklch(68.5% 0.169 237.323)",
       ), // Deep Blue
       new Blob(
         canvas.width * (0.3 + Math.random() * 0.4), // Random position in center area
         canvas.height * (0.6 + Math.random() * 0.2), // Random position in bottom area
         baseBlobSize + Math.random() * 40, // Random size between 90-130 (mobile) or 180-220 (desktop)
-        "oklch(0.65 0.25 350)"
+        "oklch(0.65 0.25 350)",
       ), // Deep Pink
     ];
 

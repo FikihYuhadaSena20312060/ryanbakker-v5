@@ -1,11 +1,10 @@
 "use client";
 
-import { Info, MoveLeft } from "lucide-react";
+import { MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { Project } from "@/sanity/lib/projects/getSingleProject";
 import { FadeInLeft, FadeInRight } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
 
 function ProjectHeader({ project }: { project: Project }) {
   const router = useRouter();

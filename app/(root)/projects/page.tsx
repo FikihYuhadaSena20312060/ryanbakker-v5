@@ -1,13 +1,12 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 import { ProjectsClient } from "@/app/(root)/projects/ProjectsClient";
 import { FadeInUp } from "@/components/AnimateOnScroll";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { getPaginatedProjects } from "@/sanity/lib/projects/getAllProjects";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects",

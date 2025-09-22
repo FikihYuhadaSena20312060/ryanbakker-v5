@@ -1,8 +1,8 @@
 import { EnvelopeOpenIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 import Link from "next/link";
 import { FadeInUp } from "../AnimateOnScroll";
 import { Button } from "../ui/button";
-import Image from "next/image";
 
 function Contact() {
   return (
@@ -41,7 +41,7 @@ function Contact() {
                   </Button>
                 </Link>
                 <Link
-                  href="https://www.linkedin.com/in/ryanbakker"
+                  href="https://www.linkedin.com/in/ryan-bakker"
                   target="_blank"
                 >
                   <Button
